@@ -32,7 +32,7 @@ Restart ComfyUI to load the node.
 4. **Connect**: Connect output to your text encoder or other text nodes
 5. **Append Mode**: Toggle to combine preset + custom prompts
 
-![2nd image](assets/aimage_2.png)
+![2nd image](assets/image_2.png)
 
 ## Integration with Qwen Image Edit 2509
 
