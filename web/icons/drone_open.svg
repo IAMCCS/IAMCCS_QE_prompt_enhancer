@@ -1,0 +1,17 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Drone opening descent through fog -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Drone quad copter -->
+    <circle cx="32" cy="12" r="3" fill="#000"/>
+    <line x1="24" y1="10" x2="40" y2="10" stroke="#000" stroke-width="1"/>
+    <line x1="24" y1="14" x2="40" y2="14" stroke="#000" stroke-width="1"/>
+    <!-- Descent path -->
+    <path d="M 32 16 L 32 56" fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+    <!-- Fog layers -->
+    <path d="M 12 28 Q 32 26 52 28" fill="none" stroke="#000" stroke-width="1" opacity="0.5"/>
+    <path d="M 10 40 Q 32 38 54 40" fill="none" stroke="#000" stroke-width="1" opacity="0.4"/>
+    <!-- Ground preview -->
+    <rect x="20" y="50" width="24" height="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  </g>
+</svg>

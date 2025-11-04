@@ -1,0 +1,10 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Style 1 (geometric) -->
+  <polygon points="20,20 26,20 26,26 20,26" fill="none" stroke="#000" stroke-width="1.5"/>
+  <line x1="20" y1="20" x2="26" y2="26" stroke="#000" stroke-width="1"/>
+  <!-- Style 2 (organic) -->
+  <path d="M 40 18 Q 44 16 46 22 Q 44 28 40 26 Q 36 28 34 22 Q 36 16 40 18" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Blend arrow -->
+  <path d="M 28 22 L 34 22" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

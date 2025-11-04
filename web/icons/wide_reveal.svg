@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Wide pullback - expanding view -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Subject close -->
+    <circle cx="32" cy="32" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Expanding outward rectangles -->
+    <rect x="16" y="16" width="32" height="32" fill="none" stroke="#000" stroke-width="1"/>
+    <rect x="10" y="10" width="44" height="44" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
+    <!-- Outward arrows -->
+    <path d="M 32 6 L 32 2 M 28 4 L 32 2 L 36 4" fill="none" stroke="#000" stroke-width="1"/>
+    <path d="M 58 32 L 62 32 M 60 28 L 62 32 L 60 36" fill="none" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Slow push in - perspective camera move -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Back rectangle (far) -->
+    <rect x="20" y="16" width="24" height="18" fill="none" stroke="#000" stroke-width="1"/>
+    <!-- Front rectangle (close) -->
+    <path d="M 12 36 L 52 36 L 48 52 L 16 52 Z" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Subject in center -->
+    <circle cx="32" cy="32" r="3" fill="#000"/>
+    <!-- Forward arrow -->
+    <path d="M 32 56 L 32 60 M 28 58 L 32 60 L 36 58" stroke="#000" stroke-width="1.5"/>
+  </g>
+</svg>

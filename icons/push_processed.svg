@@ -1,0 +1,13 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Frame -->
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Gritty texture -->
+  <circle cx="24" cy="24" r="1" fill="#000" opacity="0.6"/>
+  <circle cx="28" cy="26" r="1" fill="#000" opacity="0.5"/>
+  <circle cx="22" cy="30" r="1" fill="#000" opacity="0.5"/>
+  <circle cx="40" cy="38" r="1" fill="#000" opacity="0.6"/>
+  <circle cx="44" cy="36" r="1" fill="#000" opacity="0.5"/>
+  <!-- Deep blacks -->
+  <rect x="32" y="32" width="6" height="6" fill="#000" opacity="0.5"/>
+</svg>

@@ -1,0 +1,9 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Shoulder (close) -->
+  <path d="M 14 28 Q 24 24 30 32" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+  <!-- Head blurred in background -->
+  <circle cx="48" cy="24" r="7" fill="none" stroke="#000" stroke-width="1" opacity="0.4"/>
+  <!-- View direction -->
+  <path d="M 30 32 Q 40 28 48 24" fill="none" stroke="#000" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Camera -->
+  <rect x="18" y="18" width="28" height="20" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Lens -->
+  <circle cx="32" cy="28" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Flash -->
+  <rect x="22" y="16" width="3" height="3" fill="#000"/>
+  <!-- Realistic indicator lines -->
+  <circle cx="38" cy="24" r="1.5" fill="#000"/>
+  <circle cx="40" cy="26" r="1" fill="#000"/>
+</svg>

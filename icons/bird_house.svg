@@ -1,0 +1,10 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Roof lines (top-down) -->
+  <polygon points="32,16 48,24 32,32 16,24" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Structure lines -->
+  <line x1="24" y1="28" x2="40" y2="28" stroke="#000" stroke-width="1" opacity="0.5"/>
+  <line x1="22" y1="32" x2="42" y2="32" stroke="#000" stroke-width="1" opacity="0.5"/>
+  <!-- Chimney from above -->
+  <rect x="34" y="20" width="3" height="5" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
+</svg>

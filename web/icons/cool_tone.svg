@@ -1,0 +1,12 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Thermometer -->
+  <rect x="28" y="14" width="8" height="28" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Bulb at bottom -->
+  <circle cx="32" cy="48" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Cool indicator inside -->
+  <line x1="30" y1="20" x2="34" y2="20" stroke="#000" stroke-width="1"/>
+  <line x1="30" y1="24" x2="34" y2="24" stroke="#000" stroke-width="1"/>
+  <!-- Snowflake-like symbol -->
+  <path d="M 48 36 L 48 44 M 44 40 L 52 40" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

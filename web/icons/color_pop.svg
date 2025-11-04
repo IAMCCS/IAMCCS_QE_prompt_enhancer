@@ -1,0 +1,7 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Explosion/burst shape -->
+  <polygon points="32,12 38,28 54,28 42,36 48,52 32,44 16,52 22,36 10,28 26,28" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Center circle -->
+  <circle cx="32" cy="32" r="4" fill="#000"/>
+</svg>

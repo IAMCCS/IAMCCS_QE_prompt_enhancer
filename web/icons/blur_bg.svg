@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Frame -->
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Subject sharp -->
+  <circle cx="32" cy="32" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Blurred background lines -->
+  <line x1="18" y1="20" x2="26" y2="20" stroke="#000" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+  <line x1="38" y1="18" x2="46" y2="18" stroke="#000" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+  <line x1="18" y1="44" x2="26" y2="44" stroke="#000" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+</svg>

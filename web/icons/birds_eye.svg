@@ -1,0 +1,9 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Bird view icon - circle with smaller circle inside -->
+  <circle cx="32" cy="32" r="14" fill="none" stroke="#000" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Wings suggestion -->
+  <path d="M 18 28 Q 10 32 18 36" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M 46 28 Q 54 32 46 36" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

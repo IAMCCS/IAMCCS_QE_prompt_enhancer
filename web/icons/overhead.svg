@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Overhead circular motion - drone view -->
+  <g stroke="#000" stroke-width="1.5" fill="none">
+    <!-- Subject from above -->
+    <circle cx="32" cy="32" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+    <line x1="32" y1="26" x2="32" y2="20" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="32" y1="38" x2="32" y2="44" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+    <!-- Circular path -->
+    <circle cx="32" cy="32" r="16" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Arrow showing direction -->
+    <path d="M 48 32 L 52 30 L 50 36" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

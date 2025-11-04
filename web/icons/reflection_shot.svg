@@ -1,0 +1,17 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Reflection through glass/window -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Window glass frame -->
+    <rect x="16" y="12" width="32" height="40" rx="2" stroke="#000" stroke-width="1.5"/>
+    <!-- Glass reflection lines -->
+    <line x1="16" y1="24" x2="48" y2="24" stroke="#000" stroke-width="0.5" opacity="0.4"/>
+    <line x1="16" y1="36" x2="48" y2="36" stroke="#000" stroke-width="0.5" opacity="0.4"/>
+    <!-- Object in reflection (left) -->
+    <circle cx="24" cy="28" r="3" fill="none" stroke="#000" stroke-width="1"/>
+    <!-- Object real (right through glass) -->
+    <circle cx="40" cy="40" r="3" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
+    <!-- Glass glint -->
+    <line x1="48" y1="16" x2="52" y2="12" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>

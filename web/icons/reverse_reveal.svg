@@ -1,0 +1,15 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Reverse tracking reveal -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Near subject -->
+    <circle cx="42" cy="32" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Tracking path backward -->
+    <path d="M 42 32 L 22 32" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Secondary character revealed -->
+    <circle cx="18" cy="24" r="4" fill="none" stroke="#000" stroke-width="1"/>
+    <line x1="18" y1="28" x2="18" y2="36"/>
+    <!-- Backward arrow -->
+    <path d="M 12 32 L 8 32 M 10 28 L 8 32 L 10 36" fill="none" stroke="#000" stroke-width="1.5"/>
+  </g>
+</svg>

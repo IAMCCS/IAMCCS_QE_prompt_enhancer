@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Miniature scene -->
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Focus band (horizontal lines) -->
+  <line x1="16" y1="28" x2="48" y2="28" stroke="#000" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <line x1="16" y1="36" x2="48" y2="36" stroke="#000" stroke-width="1.5" stroke-dasharray="2,2"/>
+  <!-- Blurred areas -->
+  <line x1="18" y1="20" x2="26" y2="20" stroke="#000" stroke-width="1" opacity="0.4"/>
+  <line x1="38" y1="44" x2="46" y2="44" stroke="#000" stroke-width="1" opacity="0.4"/>
+</svg>

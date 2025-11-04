@@ -1,0 +1,8 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Extreme low angle perspective -->
+  <polygon points="20,50 28,50 40,20 32,20" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Legs in extreme foreshortening -->
+  <line x1="24" y1="50" x2="32" y2="28" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="36" y1="50" x2="40" y2="28" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

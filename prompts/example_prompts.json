@@ -1,0 +1,24 @@
+{
+  "prompts": [
+    {"id": 1, "name": "Professional", "prompt": "professional photo editing, studio quality, commercial grade enhancement"},
+    {"id": 2, "name": "Natural", "prompt": "natural enhancement, subtle improvements, maintain authenticity"},
+    {"id": 3, "name": "Dramatic", "prompt": "dramatic enhancement, bold changes, striking visual impact"},
+    {"id": 4, "name": "Soft", "prompt": "soft and gentle enhancement, dreamy atmosphere, light touch"},
+    {"id": 5, "name": "Sharp", "prompt": "sharp and crisp, maximum clarity, ultra-detailed"},
+    {"id": 6, "name": "Vintage", "prompt": "vintage style, retro look, nostalgic atmosphere, film-like quality"},
+    {"id": 7, "name": "Modern", "prompt": "modern enhancement, contemporary style, clean and fresh look"},
+    {"id": 8, "name": "Portrait", "prompt": "portrait enhancement, facial features, skin texture, professional headshot quality"},
+    {"id": 9, "name": "Landscape", "prompt": "landscape enhancement, scenic beauty, nature photography quality"},
+    {"id": 10, "name": "Product", "prompt": "product photography enhancement, commercial quality, showcase presentation"},
+    {"id": 11, "name": "Artistic", "prompt": "artistic interpretation, creative enhancement, unique visual style"},
+    {"id": 12, "name": "HDR", "prompt": "HDR effect, high dynamic range, enhanced details in highlights and shadows"},
+    {"id": 13, "name": "Cinematic", "prompt": "cinematic look, movie-like quality, film grade color grading"},
+    {"id": 14, "name": "Fashion", "prompt": "fashion photography style, editorial quality, runway-ready enhancement"},
+    {"id": 15, "name": "Food", "prompt": "food photography enhancement, appetizing look, professional culinary presentation"},
+    {"id": 16, "name": "Macro", "prompt": "macro photography enhancement, extreme detail, texture emphasis"},
+    {"id": 17, "name": "Low Light", "prompt": "low light enhancement, nighttime photography, preserve atmosphere while improving visibility"},
+    {"id": 18, "name": "High Key", "prompt": "high key lighting, bright and airy, minimal shadows"},
+    {"id": 19, "name": "Low Key", "prompt": "low key lighting, dramatic shadows, moody atmosphere"},
+    {"id": 20, "name": "Minimalist", "prompt": "minimalist enhancement, clean and simple, essential elements only"}
+  ]
+}

@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Arched structure -->
+  <path d="M 16 32 Q 32 16 48 32" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Pattern/decoration inside -->
+  <circle cx="20" cy="28" r="2" fill="#000" opacity="0.5"/>
+  <circle cx="32" cy="24" r="2" fill="#000" opacity="0.5"/>
+  <circle cx="44" cy="28" r="2" fill="#000" opacity="0.5"/>
+  <!-- Ground with patterns -->
+  <line x1="14" y1="48" x2="50" y2="48" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

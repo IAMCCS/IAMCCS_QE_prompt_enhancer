@@ -1,0 +1,9 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Mirror line -->
+  <line x1="20" y1="10" x2="20" y2="54" stroke="#000" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <!-- Object -->
+  <circle cx="12" cy="24" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Reflection -->
+  <circle cx="28" cy="24" r="6" fill="none" stroke="#000" stroke-width="1.5" opacity="0.6"/>
+</svg>

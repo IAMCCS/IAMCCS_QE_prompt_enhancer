@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Frame -->
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Grain dots (random pattern) -->
+  <circle cx="22" cy="22" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="26" cy="24" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="30" cy="20" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="34" cy="26" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="38" cy="22" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="24" cy="36" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="32" cy="40" r="0.8" fill="#000" opacity="0.5"/>
+  <circle cx="42" cy="38" r="0.8" fill="#000" opacity="0.5"/>
+</svg>

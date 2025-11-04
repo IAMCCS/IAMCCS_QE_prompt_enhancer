@@ -1,0 +1,22 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Close up drift - face zoom -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Eye -->
+    <ellipse cx="24" cy="22" rx="4" ry="5" fill="none" stroke="#000" stroke-width="1.5"/>
+    <circle cx="24" cy="22" r="2" fill="#000"/>
+    <!-- Eyebrow -->
+    <path d="M 19 18 Q 24 17 29 18" stroke="#000" stroke-width="1.5" fill="none"/>
+    <!-- Other eye -->
+    <ellipse cx="40" cy="22" rx="4" ry="5" fill="none" stroke="#000" stroke-width="1.5"/>
+    <circle cx="40" cy="22" r="2" fill="#000"/>
+    <!-- Eyebrow -->
+    <path d="M 35 18 Q 40 17 45 18" stroke="#000" stroke-width="1.5" fill="none"/>
+    <!-- Nose -->
+    <line x1="32" y1="22" x2="32" y2="32" stroke="#000" stroke-width="1.5"/>
+    <!-- Mouth -->
+    <path d="M 28 38 Q 32 40 36 38" stroke="#000" stroke-width="1.5" fill="none"/>
+    <!-- Zoom out effect (concentric circles) -->
+    <circle cx="32" cy="32" r="20" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
+    <circle cx="32" cy="32" r="28" fill="none" stroke="#000" stroke-width="0.8" opacity="0.3"/>
+  </g>
+</svg>

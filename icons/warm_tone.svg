@@ -1,0 +1,10 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Thermometer -->
+  <rect x="28" y="14" width="8" height="28" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Bulb at bottom -->
+  <circle cx="32" cy="48" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Warm indicator inside -->
+  <line x1="30" y1="36" x2="34" y2="36" stroke="#000" stroke-width="1"/>
+  <line x1="30" y1="40" x2="34" y2="40" stroke="#000" stroke-width="1"/>
+</svg>

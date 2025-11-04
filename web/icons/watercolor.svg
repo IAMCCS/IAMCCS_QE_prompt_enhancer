@@ -1,0 +1,9 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Paper -->
+  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Watercolor wash effect -->
+  <circle cx="28" cy="28" r="8" fill="none" stroke="#000" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="40" cy="32" r="6" fill="none" stroke="#000" stroke-width="1" opacity="0.4"/>
+  <circle cx="32" cy="42" r="5" fill="none" stroke="#000" stroke-width="1" opacity="0.3"/>
+</svg>

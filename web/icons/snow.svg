@@ -1,0 +1,19 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Cloud -->
+  <path d="M 20 20 Q 16 16 22 12 Q 26 8 32 12 Q 38 8 42 12 Q 48 16 44 20 Z" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Snowflakes -->
+  <g opacity="0.7">
+    <line x1="18" y1="30" x2="18" y2="42" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+    <line x1="14" y1="36" x2="22" y2="36" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+    <line x1="15" y1="32" x2="21" y2="40" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.7">
+    <line x1="32" y1="32" x2="32" y2="44" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+    <line x1="28" y1="38" x2="36" y2="38" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+  </g>
+  <g opacity="0.7">
+    <line x1="48" y1="28" x2="48" y2="40" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+    <line x1="44" y1="34" x2="52" y2="34" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+  </g>
+</svg>

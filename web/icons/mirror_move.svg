@@ -1,0 +1,22 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mirror reflection motion -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Mirror line (vertical) -->
+    <line x1="32" y1="8" x2="32" y2="56" stroke="#000" stroke-width="2"/>
+    <!-- Left side - subject -->
+    <circle cx="18" cy="20" r="4" fill="none" stroke="#000" stroke-width="1.5"/>
+    <line x1="18" y1="24" x2="18" y2="34" stroke="#000" stroke-width="1.5"/>
+    <line x1="14" y1="28" x2="22" y2="28" stroke="#000" stroke-width="1.5"/>
+    <line x1="16" y1="34" x2="16" y2="44" stroke="#000" stroke-width="1.5"/>
+    <line x1="20" y1="34" x2="20" y2="44" stroke="#000" stroke-width="1.5"/>
+    <!-- Right side - reflection -->
+    <circle cx="46" cy="20" r="4" fill="none" stroke="#000" stroke-width="1.5"/>
+    <line x1="46" y1="24" x2="46" y2="34" stroke="#000" stroke-width="1.5"/>
+    <line x1="42" y1="28" x2="50" y2="28" stroke="#000" stroke-width="1.5"/>
+    <line x1="44" y1="34" x2="44" y2="44" stroke="#000" stroke-width="1.5"/>
+    <line x1="48" y1="34" x2="48" y2="44" stroke="#000" stroke-width="1.5"/>
+    <!-- Motion arrows -->
+    <path d="M 12 50 L 20 50 M 16 46 L 20 50 L 16 54" stroke="#000" stroke-width="1.5" fill="none"/>
+    <path d="M 52 50 L 44 50 M 48 46 L 44 50 L 48 54" stroke="#000" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

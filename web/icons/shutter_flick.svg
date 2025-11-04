@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Rolling shutter effect -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Rolling shutter lines -->
+    <line x1="8" y1="10" x2="56" y2="10" stroke="#000" stroke-width="1.5"/>
+    <line x1="10" y1="20" x2="58" y2="20" stroke="#000" stroke-width="1.5"/>
+    <line x1="12" y1="30" x2="60" y2="30" stroke="#000" stroke-width="1.5"/>
+    <line x1="10" y1="40" x2="58" y2="40" stroke="#000" stroke-width="1.5"/>
+    <line x1="8" y1="50" x2="56" y2="50" stroke="#000" stroke-width="1.5"/>
+    <!-- Light distortion -->
+    <path d="M 32 8 L 40 18 L 32 28" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
+  </g>
+</svg>

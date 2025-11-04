@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Café table -->
+  <circle cx="32" cy="36" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Chair -->
+  <polygon points="22,28 26,24 26,32 22,36" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Cup on table -->
+  <circle cx="32" cy="32" r="2" fill="none" stroke="#000" stroke-width="1"/>
+  <!-- Eiffel Tower in background -->
+  <polygon points="48,14 50,20 48,28 46,20" fill="none" stroke="#000" stroke-width="1" opacity="0.4" stroke-linejoin="round"/>
+</svg>

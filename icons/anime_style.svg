@@ -1,0 +1,11 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Anime eye (large) -->
+  <ellipse cx="24" cy="28" rx="6" ry="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <circle cx="24" cy="28" r="3" fill="#000"/>
+  <!-- Second eye -->
+  <ellipse cx="40" cy="28" rx="6" ry="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <circle cx="40" cy="28" r="3" fill="#000"/>
+  <!-- Mouth -->
+  <path d="M 28 40 Q 32 42 36 40" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

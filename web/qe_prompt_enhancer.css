@@ -1,0 +1,173 @@
+/* QE Prompt Enhancer - EXACT COPY of easyuse style selector
+ * Author: Carmine Cristallo Scalzi (IAMCCS)
+ * Repository: IAMCCS_QE_prompt_enhancer
+ */
+
+.iamccs-qe-prompt-styles {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background: var(--comfy-menu-bg);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tools bar - clean style like image #3 */
+.iamccs-qe-prompt-styles .tools {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: 30px;
+    padding: 0;
+    margin: 0 0 5px 0;
+    border-bottom: 2px solid var(--border-color);
+    flex-shrink: 0;
+}
+
+.iamccs-qe-prompt-styles .tools button.delete {
+    height: 30px;
+    min-width: 110px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    font-size: 11px;
+    background: var(--comfy-input-bg);
+    color: var(--error-text);
+    box-shadow: none;
+    cursor: pointer;
+    padding: 0 12px;
+    flex-shrink: 0;
+}
+
+.iamccs-qe-prompt-styles .tools button.delete:hover {
+    filter: brightness(1.2);
+}
+
+.iamccs-qe-prompt-styles .tools textarea.search {
+    flex: 1;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 8px;
+    border: 2px solid var(--border-color);
+    font-size: 13px;
+    background: var(--comfy-input-bg);
+    color: var(--input-text);
+    box-shadow: none;
+    padding: 4px 10px;
+    outline: none;
+    resize: none;
+    appearance: none;
+    min-width: 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+}
+
+.iamccs-qe-prompt-styles .tools textarea.search::placeholder {
+    font-size: 13px;
+    text-align: left;
+}
+
+.iamccs-qe-prompt-styles-list {
+    list-style: none;
+    padding: 0 0 20px 0;
+    margin: 0;
+    min-height: 150px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    flex: 1;
+    align-content: start;
+    grid-auto-rows: min-content;
+}
+
+/* Style card - like easyuse with image preview */
+.iamccs-qe-prompt-style-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--comfy-input-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    width: 100%;
+    aspect-ratio: 1 / 1.15;
+}
+
+.iamccs-qe-prompt-style-card:hover {
+    filter: brightness(1.2);
+    border-color: var(--fg-color);
+}
+
+.iamccs-qe-prompt-style-card.selected {
+    border-color: #4CAF50;
+    border-width: 3px;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* Image preview area */
+.iamccs-qe-prompt-style-image {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    font-size: 96px;
+    overflow: hidden;
+}
+
+.iamccs-qe-prompt-style-image img {
+    width: 128px;
+    height: 128px;
+    object-fit: contain;
+}
+
+/* Label at bottom */
+.iamccs-qe-prompt-style-label {
+    padding: 6px 8px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--input-text);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 0;
+}
+
+.iamccs-qe-prompt-style-card.selected .iamccs-qe-prompt-style-label {
+    background: rgba(76, 175, 80, 0.3);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Hide class for search */
+.iamccs-qe-prompt-style-card.hide {
+    display: none;
+}
+
+/* Scrollbar styling */
+.iamccs-qe-prompt-styles-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.iamccs-qe-prompt-styles-list::-webkit-scrollbar-track {
+    background: var(--comfy-menu-bg);
+    border-radius: 4px;
+}
+
+.iamccs-qe-prompt-styles-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+.iamccs-qe-prompt-styles-list::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-color);
+}

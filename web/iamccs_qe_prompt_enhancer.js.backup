@@ -1,0 +1,206 @@
+/**
+ * IAMCCS QE Prompt Enhancer
+ * Beautiful button grid for Qwen Image Edit 2509 prompt selection
+ */
+
+import { app } from "../../scripts/app.js";
+import { $el } from "../../scripts/ui.js";
+
+// Load prompts config
+let promptsConfig = null;
+
+fetch('/custom_nodes/IAMCCS_QE_prompt_enhancer/prompts_config.json?t=' + Date.now())
+    .then(res => res.json())
+    .then(data => {
+        promptsConfig = data;
+        console.log('[QE_PromptEnhancer] Config loaded:', promptsConfig);
+    })
+    .catch(err => console.error('[QE_PromptEnhancer] Error loading config:', err));
+
+// Icon mappings
+const ICON_MAP = {
+    enhance: "✨", brightness: "☀️", contrast: "🎨", sharpen: "🔍",
+    remove: "🗑️", blur: "🌫️", clean: "✂️", denoise: "🧹",
+    upscale: "⬆️", face: "👤", hand: "🖐️", light: "💡",
+    palette: "🌈", warm: "🔥", cool: "❄️", grayscale: "⚫",
+    detail: "🔬", smooth: "🧴", style: "🎭", restore: "♻️"
+};
+
+// Create button list
+function getButtonList(prompts, selectedId, onClick) {
+    return prompts.map((p, i) => {
+        return $el("button.iamccs-prompt-btn", {
+            dataset: {
+                id: p.id,
+                prompt: p.prompt
+            },
+            className: p.id === selectedId ? "iamccs-prompt-btn iamccs-prompt-btn-selected" : "iamccs-prompt-btn",
+            onclick: function() {
+                // Remove selected from all
+                this.parentElement.querySelectorAll(".iamccs-prompt-btn-selected").forEach(el => {
+                    el.classList.remove("iamccs-prompt-btn-selected");
+                });
+                // Add selected to this
+                this.classList.add("iamccs-prompt-btn-selected");
+                // Call callback
+                onClick(p);
+            }
+        }, [
+            $el("div.iamccs-prompt-icon", {
+                textContent: ICON_MAP[p.icon] || "⭐"
+            }),
+            $el("div.iamccs-prompt-label", {
+                textContent: p.label
+            })
+        ]);
+    });
+}
+
+// Register extension
+app.registerExtension({
+    name: "IAMCCS.QE_PromptEnhancer",
+
+    async beforeRegisterNodeDef(nodeType, nodeData, app) {
+        if (nodeData.name === "IAMCCS_QE_PromptEnhancer") {
+            const onNodeCreated = nodeType.prototype.onNodeCreated;
+
+            nodeType.prototype.onNodeCreated = function() {
+                const r = onNodeCreated?.apply(this, arguments);
+                const node = this;
+
+                // Wait for config
+                const waitForConfig = () => {
+                    if (!promptsConfig) {
+                        setTimeout(waitForConfig, 100);
+                        return;
+                    }
+
+                    // Get widgets
+                    const promptIdWidget = node.widgets.find(w => w.name === 'selected_prompt_id');
+                    const customPromptWidget = node.widgets.find(w => w.name === 'custom_prompt');
+
+                    // Hide prompt ID (controlled by buttons)
+                    if (promptIdWidget) {
+                        promptIdWidget.type = "converted-widget";
+                        promptIdWidget.computeSize = () => [0, -4];
+                    }
+
+                    // Create button grid
+                    const prompts = promptsConfig.prompts || [];
+                    const selectedId = promptIdWidget ? promptIdWidget.value : 1;
+
+                    const buttonGrid = $el("div.iamccs-prompt-grid",
+                        getButtonList(prompts, selectedId, (promptData) => {
+                            // Update hidden widget
+                            if (promptIdWidget) {
+                                promptIdWidget.value = promptData.id;
+                            }
+                            // Update custom prompt field
+                            if (customPromptWidget) {
+                                customPromptWidget.value = promptData.prompt;
+                            }
+                        })
+                    );
+
+                    // Add header
+                    const header = $el("div.iamccs-prompt-header", {
+                        textContent: "Quick Prompts - Qwen Image Edit 2509"
+                    });
+
+                    // Create container
+                    const container = $el("div.iamccs-prompt-container", [
+                        header,
+                        buttonGrid
+                    ]);
+
+                    // Add as DOM widget (THIS IS THE KEY!)
+                    const widget = node.addDOMWidget("prompt_buttons", "btn", container, {
+                        serialize: false,
+                        hideOnZoom: false
+                    });
+
+                    // Add CSS
+                    if (!document.getElementById("iamccs-qe-styles")) {
+                        const style = document.createElement("style");
+                        style.id = "iamccs-qe-styles";
+                        style.textContent = `
+                            .iamccs-prompt-container {
+                                width: 100%;
+                                background: #2a2a2a;
+                                border-radius: 8px;
+                                padding: 12px;
+                                margin: 4px 0;
+                            }
+                            .iamccs-prompt-header {
+                                font-size: 12px;
+                                font-weight: 600;
+                                color: #999;
+                                margin-bottom: 12px;
+                                padding-bottom: 8px;
+                                border-bottom: 1px solid #444;
+                                font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+                            }
+                            .iamccs-prompt-grid {
+                                display: grid;
+                                grid-template-columns: repeat(4, 1fr);
+                                gap: 6px;
+                            }
+                            .iamccs-prompt-btn {
+                                background: linear-gradient(145deg, #3a3a3a, #2f2f2f);
+                                border: 1px solid #4a4a4a;
+                                border-radius: 8px;
+                                padding: 10px 6px;
+                                min-height: 65px;
+                                cursor: pointer;
+                                transition: all 0.2s ease;
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                justify-content: center;
+                                gap: 4px;
+                            }
+                            .iamccs-prompt-btn:hover {
+                                background: linear-gradient(145deg, #4a4a4a, #3f3f3f);
+                                border-color: #0071e3;
+                                transform: translateY(-2px);
+                                box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+                            }
+                            .iamccs-prompt-btn-selected {
+                                background: linear-gradient(145deg, #0071e3, #0056b3) !important;
+                                border-color: #0071e3 !important;
+                                box-shadow: 0 0 12px rgba(0, 113, 227, 0.5);
+                            }
+                            .iamccs-prompt-icon {
+                                font-size: 20px;
+                                line-height: 1;
+                            }
+                            .iamccs-prompt-label {
+                                font-size: 9px;
+                                font-weight: 500;
+                                color: #ccc;
+                                text-align: center;
+                                line-height: 1.1;
+                                font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+                            }
+                            .iamccs-prompt-btn-selected .iamccs-prompt-label {
+                                color: #fff;
+                            }
+                        `;
+                        document.head.appendChild(style);
+                    }
+
+                    // Resize node to fit buttons
+                    setTimeout(() => {
+                        if (node.size[0] < 400 || node.size[1] < 200) {
+                            node.setSize([420, Math.max(node.computeSize()[1], 450)]);
+                        }
+                    }, 100);
+                };
+
+                waitForConfig();
+
+                return r;
+            };
+        }
+    }
+});

@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Camera tilting up -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Camera body -->
+    <rect x="12" y="22" width="40" height="32" rx="3"/>
+    <!-- Lens -->
+    <circle cx="32" cy="38" r="10" fill="none" stroke="#000" stroke-width="1.5"/>
+    <circle cx="32" cy="38" r="6" fill="none" stroke="#000" stroke-width="1"/>
+    <!-- Viewfinder -->
+    <rect x="16" y="26" width="6" height="6" rx="1"/>
+    <!-- Tilt up arrow -->
+    <path d="M 32 16 L 32 8 M 28 12 L 32 8 L 36 12" stroke="#000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

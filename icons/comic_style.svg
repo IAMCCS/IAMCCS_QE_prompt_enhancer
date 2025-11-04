@@ -1,0 +1,10 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Comic bubble -->
+  <ellipse cx="32" cy="30" rx="14" ry="10" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Pointer -->
+  <polygon points="18,36 16,42 22,38" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
+  <!-- Comic impact lines -->
+  <line x1="48" y1="20" x2="54" y2="14" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+  <line x1="50" y1="22" x2="57" y2="15" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,633 @@
+{
+  "grid_layout": {
+    "rows": 5,
+    "columns": 4,
+    "style": "minimal"
+  },
+  "prompts": [
+    {
+      "id": 1,
+      "label": "Enhance",
+      "icon": "icons/enhance.svg",
+      "prompt": "Enhance image quality, improve clarity and detail"
+    },
+    {
+      "id": 2,
+      "label": "Brighten",
+      "icon": "icons/brighten.svg",
+      "prompt": "Increase brightness and luminosity"
+    },
+    {
+      "id": 3,
+      "label": "Contrast",
+      "icon": "icons/contrast.svg",
+      "prompt": "Enhance contrast and color depth"
+    },
+    {
+      "id": 4,
+      "label": "Sharpen",
+      "icon": "icons/sharpen.svg",
+      "prompt": "Sharpen details and improve edge definition"
+    },
+    {
+      "id": 5,
+      "label": "Remove BG",
+      "icon": "icons/remove_bg.svg",
+      "prompt": "Remove background, keep main subject"
+    },
+    {
+      "id": 6,
+      "label": "Blur BG",
+      "icon": "icons/blur_bg.svg",
+      "prompt": "Blur background, focus on foreground"
+    },
+    {
+      "id": 7,
+      "label": "Clean",
+      "icon": "icons/clean.svg",
+      "prompt": "Remove unwanted objects and blemishes"
+    },
+    {
+      "id": 8,
+      "label": "Denoise",
+      "icon": "icons/denoise.svg",
+      "prompt": "Reduce noise and grain"
+    },
+    {
+      "id": 9,
+      "label": "Upscale",
+      "icon": "icons/upscale.svg",
+      "prompt": "Increase resolution and upscale image"
+    },
+    {
+      "id": 10,
+      "label": "Fix Face",
+      "icon": "icons/fix_face.svg",
+      "prompt": "Enhance facial features and details"
+    },
+    {
+      "id": 11,
+      "label": "Fix Hands",
+      "icon": "icons/fix_hands.svg",
+      "prompt": "Correct hand anatomy and details"
+    },
+    {
+      "id": 12,
+      "label": "Lighting",
+      "icon": "icons/lighting.svg",
+      "prompt": "Improve lighting and shadows"
+    },
+    {
+      "id": 13,
+      "label": "Color Pop",
+      "icon": "icons/color_pop.svg",
+      "prompt": "Enhance color saturation and vibrancy"
+    },
+    {
+      "id": 14,
+      "label": "Warm Tone",
+      "icon": "icons/warm_tone.svg",
+      "prompt": "Apply warm color temperature"
+    },
+    {
+      "id": 15,
+      "label": "Cool Tone",
+      "icon": "icons/cool_tone.svg",
+      "prompt": "Apply cool color temperature"
+    },
+    {
+      "id": 16,
+      "label": "B&W",
+      "icon": "icons/black_white.svg",
+      "prompt": "Convert to black and white"
+    },
+    {
+      "id": 17,
+      "label": "Add Detail",
+      "icon": "icons/add_detail.svg",
+      "prompt": "Add fine details and texture"
+    },
+    {
+      "id": 18,
+      "label": "Smooth",
+      "icon": "icons/smooth.svg",
+      "prompt": "Smooth skin and surfaces"
+    },
+    {
+      "id": 19,
+      "label": "Stylize",
+      "icon": "icons/stylize.svg",
+      "prompt": "Apply artistic stylization"
+    },
+    {
+      "id": 20,
+      "label": "Restore",
+      "icon": "icons/restore.svg",
+      "prompt": "Restore old or damaged photo"
+    },
+    {
+      "id": 21,
+      "label": "High Angle",
+      "icon": "icons/high_angle_shot.svg",
+      "prompt": "Rotate the image to a high-angle shot (bird's eye view)"
+    },
+    {
+      "id": 22,
+      "label": "Low Angle",
+      "icon": "icons/low_angle_shot.svg",
+      "prompt": "Rotate the image to a low-angle shot looking upward"
+    },
+    {
+      "id": 23,
+      "label": "Side Angle",
+      "icon": "icons/side_angle_shot.svg",
+      "prompt": "Show the subject from a direct side profile view"
+    },
+    {
+      "id": 24,
+      "label": "Ultra Low",
+      "icon": "icons/ultra_low.svg",
+      "prompt": "Extreme ultra-low shot emphasizing foreshortening"
+    },
+    {
+      "id": 25,
+      "label": "Bird House",
+      "icon": "icons/bird_house.svg",
+      "prompt": "Bird's-eye top view of architecture or object"
+    },
+    {
+      "id": 26,
+      "label": "Close Portrait",
+      "icon": "icons/close_portrait.svg",
+      "prompt": "Close-up portrait focusing on the face"
+    },
+    {
+      "id": 27,
+      "label": "Over Shoulder",
+      "icon": "icons/over_shoulder_shot.svg",
+      "prompt": "Over-the-shoulder cinematic angle"
+    },
+    {
+      "id": 28,
+      "label": "Dutch Angle",
+      "icon": "icons/dutch_angle.svg",
+      "prompt": "Tilted camera frame for cinematic tension"
+    },
+    {
+      "id": 29,
+      "label": "Soft Focus",
+      "icon": "icons/soft_focus_dreamy.svg",
+      "prompt": "Apply soft focus with gentle blur"
+    },
+    {
+      "id": 30,
+      "label": "Symmetry View",
+      "icon": "icons/symmetry_view.svg",
+      "prompt": "Symmetrical centered composition"
+    },
+    {
+      "id": 31,
+      "label": "Panoramic",
+      "icon": "icons/panoramic_view.svg",
+      "prompt": "Panoramic wide-angle version of the scene"
+    },
+    {
+      "id": 32,
+      "label": "Macro Detail",
+      "icon": "icons/macro_detail.svg",
+      "prompt": "Close focus on micro details or textures"
+    },
+    {
+      "id": 33,
+      "label": "Reflected View",
+      "icon": "icons/reflected_view.svg",
+      "prompt": "Recreate reflection-based scene"
+    },
+    {
+      "id": 34,
+      "label": "Motion Shot",
+      "icon": "icons/motion_shot.svg",
+      "prompt": "Add subtle motion blur and dynamic framing"
+    },
+    {
+      "id": 35,
+      "label": "Top Framing",
+      "icon": "icons/top_framing.svg",
+      "prompt": "Frame the subject tightly from above"
+    },
+    {
+      "id": 36,
+      "label": "Cinematic Crop",
+      "icon": "icons/cinematic_crop.svg",
+      "prompt": "Apply widescreen cinematic framing"
+    },
+    {
+      "id": 37,
+      "label": "Airplane ✈️",
+      "icon": "icons/airplane.svg",
+      "prompt": "Place the character sitting on an airplane seat near the window, with sunlight entering."
+    },
+    {
+      "id": 38,
+      "label": "Train 🚆",
+      "icon": "icons/train.svg",
+      "prompt": "Place the character standing inside a moving train, looking outside the window."
+    },
+    {
+      "id": 39,
+      "label": "Tokyo Street 🌃",
+      "icon": "icons/tokyo_street.svg",
+      "prompt": "Place the character walking on a busy street in Tokyo at night, surrounded by neon lights."
+    },
+    {
+      "id": 40,
+      "label": "New York 🗽",
+      "icon": "icons/new_york.svg",
+      "prompt": "Place the character standing at the center of Times Square in New York City."
+    },
+    {
+      "id": 41,
+      "label": "Paris Café ☕",
+      "icon": "icons/paris_cafe.svg",
+      "prompt": "Place the character sitting in a Parisian café with the Eiffel Tower visible outside."
+    },
+    {
+      "id": 42,
+      "label": "Desert Sunset 🌅",
+      "icon": "icons/desert_sunset_travel.svg",
+      "prompt": "Place the character standing on a desert road at sunset, warm orange sky behind."
+    },
+    {
+      "id": 43,
+      "label": "Beach 🏖️",
+      "icon": "icons/beach_travel.svg",
+      "prompt": "Place the character sitting on a tropical beach near the ocean, soft light and waves."
+    },
+    {
+      "id": 44,
+      "label": "Forest 🌲",
+      "icon": "icons/forest_travel.svg",
+      "prompt": "Place the character walking in a dense pine forest covered in morning mist."
+    },
+    {
+      "id": 45,
+      "label": "Waterfall 💧",
+      "icon": "icons/waterfall.svg",
+      "prompt": "Place the character standing near a large waterfall in Iceland."
+    },
+    {
+      "id": 46,
+      "label": "Snowy Village ❄️",
+      "icon": "icons/snowy_village.svg",
+      "prompt": "Place the character walking through a snowy street in a Nordic village."
+    },
+    {
+      "id": 47,
+      "label": "Rome 🇮🇹",
+      "icon": "icons/rome_travel.svg",
+      "prompt": "Place the character standing in front of the Colosseum in Rome, golden light atmosphere."
+    },
+    {
+      "id": 48,
+      "label": "Countryside Bus 🚌",
+      "icon": "icons/countryside_bus.svg",
+      "prompt": "Place the character sitting on a bus traveling through the green countryside."
+    },
+    {
+      "id": 49,
+      "label": "Airport ✈️",
+      "icon": "icons/airport_terminal.svg",
+      "prompt": "Place the character waiting at an airport terminal with luggage beside them."
+    },
+    {
+      "id": 50,
+      "label": "Mountain Peak 🏔️",
+      "icon": "icons/mountain_peak.svg",
+      "prompt": "Place the character standing on a mountain peak watching the sunrise."
+    },
+    {
+      "id": 51,
+      "label": "Moroccan Bazaar 🕌",
+      "icon": "icons/moroccan_bazaar.svg",
+      "prompt": "Place the character walking through a colorful crowded bazaar in Morocco."
+    },
+    {
+      "id": 52,
+      "label": "Venice Gondola 🚤",
+      "icon": "icons/venice_gondola.svg",
+      "prompt": "Place the character sitting on a gondola in Venice surrounded by canals."
+    },
+    {
+      "id": 53,
+      "label": "Realistic Cinematic Shot",
+      "icon": "icons/cinematic_shot.svg",
+      "prompt": "Realistic cinematic lighting and moody film tone"
+    },
+    {
+      "id": 54,
+      "label": "Kodak 5219 Look",
+      "icon": "icons/kodak_look.svg",
+      "prompt": "Kodak 5219 warm film emulation with soft highlights"
+    },
+    {
+      "id": 55,
+      "label": "Bleach Bypass",
+      "icon": "icons/bleach_bypass.svg",
+      "prompt": "High-contrast desaturated bleach bypass style"
+    },
+    {
+      "id": 56,
+      "label": "Anamorphic Lens",
+      "icon": "icons/anamorphic_lens.svg",
+      "prompt": "Anamorphic lens with oval bokeh and flare"
+    },
+    {
+      "id": 57,
+      "label": "Fujifilm Stock",
+      "icon": "icons/fujifilm_stock.svg",
+      "prompt": "Fujifilm film look with analog color and grain"
+    },
+    {
+      "id": 58,
+      "label": "Lens Flare",
+      "icon": "icons/lens_flare_cinematic.svg",
+      "prompt": "Cinematic blue lens flare and shallow depth"
+    },
+    {
+      "id": 59,
+      "label": "Vintage 35mm",
+      "icon": "icons/vintage_35mm.svg",
+      "prompt": "35mm vintage film warmth and organic texture"
+    },
+    {
+      "id": 60,
+      "label": "Tungsten Light",
+      "icon": "icons/tungsten_light.svg",
+      "prompt": "Tungsten-lit cinematic warmth and halation"
+    },
+    {
+      "id": 61,
+      "label": "Cold Daylight",
+      "icon": "icons/cold_daylight.svg",
+      "prompt": "Cold daylight tone with realistic film shadows"
+    },
+    {
+      "id": 62,
+      "label": "High Key Film",
+      "icon": "icons/high_key_film.svg",
+      "prompt": "Bright high-key film with silver tone and low saturation"
+    },
+    {
+      "id": 63,
+      "label": "Teal-Orange",
+      "icon": "icons/teal_orange.svg",
+      "prompt": "Teal-orange cinematic color grading"
+    },
+    {
+      "id": 64,
+      "label": "Tilt-Shift",
+      "icon": "icons/tilt_shift_cinematic.svg",
+      "prompt": "Tilt-shift miniature cinematic focus"
+    },
+    {
+      "id": 65,
+      "label": "Push Processed",
+      "icon": "icons/push_processed.svg",
+      "prompt": "Push-processed Kodak look with gritty contrast"
+    },
+    {
+      "id": 66,
+      "label": "Cinematic LUT",
+      "icon": "icons/cinematic_lut.svg",
+      "prompt": "Cinematic LUT grade with warm and cyan balance"
+    },
+    {
+      "id": 67,
+      "label": "Handheld 16mm",
+      "icon": "icons/handheld_16mm.svg",
+      "prompt": "Handheld 16mm analog motion grain style"
+    },
+    {
+      "id": 68,
+      "label": "Underexposed Film",
+      "icon": "icons/underexposed_film.svg",
+      "prompt": "Underexposed dense blacks and preserved highlights"
+    },
+    {
+      "id": 69,
+      "label": "Soft Vignette",
+      "icon": "icons/soft_vignette_cinematic.svg",
+      "prompt": "Soft vignette with lens diffusion and nostalgia"
+    },
+    {
+      "id": 70,
+      "label": "High ISO",
+      "icon": "icons/high_iso.svg",
+      "prompt": "High ISO film noise and low ambient lighting"
+    },
+    {
+      "id": 71,
+      "label": "Polaroid Look",
+      "icon": "icons/polaroid_look.svg",
+      "prompt": "Polaroid instant tone with muted pastel colors"
+    },
+    {
+      "id": 72,
+      "label": "Cinematic Depth",
+      "icon": "icons/cinematic_depth.svg",
+      "prompt": "Cinematic shallow focus and natural bokeh"
+    },
+    {
+      "id": 73,
+      "label": "☮ Push In",
+      "icon": "☮",
+      "prompt": "Camera pushes in from behind the subject"
+    },
+    {
+      "id": 74,
+      "label": "✝ Close Face",
+      "icon": "✝",
+      "prompt": "Close-up face, 85 mm Alexa shallow focus"
+    },
+    {
+      "id": 75,
+      "label": "☪ Wide Reveal",
+      "icon": "☪",
+      "prompt": "Wide-angle reveal with 24 mm anamorphic lens"
+    },
+    {
+      "id": 76,
+      "label": "🕉 Back Shot",
+      "icon": "🕉",
+      "prompt": "Camera follows character from the back"
+    },
+    {
+      "id": 77,
+      "label": "☸ Over Shoulder",
+      "icon": "☸",
+      "prompt": "Over-the-shoulder glide toward dialogue partner"
+    },
+    {
+      "id": 78,
+      "label": "✡ Fisheye Move",
+      "icon": "✡",
+      "prompt": "Fisheye pan creating distorted perspective"
+    },
+    {
+      "id": 79,
+      "label": "🔯 Tracking Walk",
+      "icon": "🔯",
+      "prompt": "Steadicam tracking walk, full-frame Alexa"
+    },
+    {
+      "id": 80,
+      "label": "🕎 Shallow DOF",
+      "icon": "🕎",
+      "prompt": "Pull focus between two subjects"
+    },
+    {
+      "id": 81,
+      "label": "☯ Rack Focus",
+      "icon": "☯",
+      "prompt": "Rack focus shifting foreground to distance"
+    },
+    {
+      "id": 82,
+      "label": "☦ Dolly Zoom",
+      "icon": "☦",
+      "prompt": "Dolly zoom revealing background compression"
+    },
+    {
+      "id": 83,
+      "label": "🛐 Handheld Vibe",
+      "icon": "🛐",
+      "prompt": "Natural handheld movement with film grain"
+    },
+    {
+      "id": 84,
+      "label": "⛎ Slow Pan",
+      "icon": "⛎",
+      "prompt": "Slow panoramic movement revealing details"
+    },
+    {
+      "id": 85,
+      "label": "♈ Overhead",
+      "icon": "♈",
+      "prompt": "Overhead circling drone-like perspective"
+    },
+    {
+      "id": 86,
+      "label": "♉ Lens Flare",
+      "icon": "♉",
+      "prompt": "Warm sun flare crossing the lens"
+    },
+    {
+      "id": 87,
+      "label": "♊ Depth Pull",
+      "icon": "♊",
+      "prompt": "Gradual focus pull to secondary subject"
+    },
+    {
+      "id": 88,
+      "label": "♏ Long Take",
+      "icon": "♏",
+      "prompt": "Continuous long take with 35 mm tracking"
+    },
+    {
+      "id": 89,
+      "label": "🎈 Drone Open",
+      "icon": "🎈",
+      "prompt": "Drone descent through morning fog"
+    },
+    {
+      "id": 90,
+      "label": "🎆 Steadicam Glide",
+      "icon": "🎆",
+      "prompt": "Steadicam glide through corridor light flicker"
+    },
+    {
+      "id": 91,
+      "label": "🎇 Portrait Tilt",
+      "icon": "🎇",
+      "prompt": "Tilt up from shoes to face, 50 mm portrait"
+    },
+    {
+      "id": 92,
+      "label": "🧨 Crane Move",
+      "icon": "🧨",
+      "prompt": "Crane drop revealing characters below"
+    },
+    {
+      "id": 93,
+      "label": "🎉 Push Pull",
+      "icon": "🎉",
+      "prompt": "Dolly-in zoom-out Hitchcock effect"
+    },
+    {
+      "id": 94,
+      "label": "🎊 Side Tracking",
+      "icon": "🎊",
+      "prompt": "Side tracking matching actor movement"
+    },
+    {
+      "id": 95,
+      "label": "🎃 Shutter Flick",
+      "icon": "🎃",
+      "prompt": "Rolling-shutter flick with crossing light"
+    },
+    {
+      "id": 96,
+      "label": "🎋 Wide Street",
+      "icon": "🎋",
+      "prompt": "Wide street shot, Alexa Mini LF 35 mm"
+    },
+    {
+      "id": 97,
+      "label": "🎍 Focus Transition",
+      "icon": "🎍",
+      "prompt": "Focus shift from hand to face in shallow DOF"
+    },
+    {
+      "id": 98,
+      "label": "🧧 Reflection Shot",
+      "icon": "🧧",
+      "prompt": "Capture reflection through window glass"
+    },
+    {
+      "id": 99,
+      "label": "🎁 Reverse Reveal",
+      "icon": "🎁",
+      "prompt": "Reverse tracking reveal of second character"
+    },
+    {
+      "id": 100,
+      "label": "🎪 Overcrank",
+      "icon": "🎪",
+      "prompt": "Overcranked slow-motion natural-light shot"
+    },
+    {
+      "id": 101,
+      "label": "🎢 Depth Roll",
+      "icon": "🎢",
+      "prompt": "Rolling camera move emphasizing depth"
+    },
+    {
+      "id": 102,
+      "label": "🖼 Focal Spin",
+      "icon": "🖼",
+      "prompt": "Circular rotation around static subject"
+    },
+    {
+      "id": 103,
+      "label": "🧶 Color Bloom",
+      "icon": "🧶",
+      "prompt": "Warm color-bloom flare transition"
+    },
+    {
+      "id": 104,
+      "label": "🧤 End Pullback",
+      "icon": "🧤",
+      "prompt": "Slow pullback revealing entire environment"
+    }
+  ]
+}

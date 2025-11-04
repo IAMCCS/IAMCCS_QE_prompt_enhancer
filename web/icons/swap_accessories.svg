@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Person 1 -->
+  <circle cx="20" cy="20" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Accessory 1 (ring on hand) -->
+  <circle cx="16" cy="32" r="2.5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Person 2 -->
+  <circle cx="44" cy="20" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Accessory 2 (different ring) -->
+  <circle cx="40" cy="32" r="2.5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <line x1="40" y1="32" x2="40" y2="36" stroke="#000" stroke-width="1"/>
+  <!-- Swap arrow -->
+  <path d="M 28 26 L 36 26" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

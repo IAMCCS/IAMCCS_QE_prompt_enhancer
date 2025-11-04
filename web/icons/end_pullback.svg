@@ -1,0 +1,17 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Final pullback revealing full scene -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Subject in center -->
+    <circle cx="32" cy="32" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Expanding revealing frames -->
+    <rect x="20" y="20" width="24" height="24" fill="none" stroke="#000" stroke-width="1"/>
+    <rect x="12" y="12" width="40" height="40" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Environment elements -->
+    <rect x="6" y="8" width="8" height="8" fill="none" stroke="#000" stroke-width="1" opacity="0.5"/>
+    <rect x="50" y="48" width="8" height="8" fill="none" stroke="#000" stroke-width="1" opacity="0.5"/>
+    <!-- Pullback arrow -->
+    <path d="M 58 6 L 58 10" fill="none" stroke="#000" stroke-width="1"/>
+    <path d="M 56 8 L 58 6 L 60 8" fill="none" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>

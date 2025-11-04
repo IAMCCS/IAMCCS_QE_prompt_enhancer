@@ -1,0 +1,15 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Hitchcock push/pull zoom effect -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Near perspective (push) -->
+    <rect x="12" y="20" width="40" height="24" rx="2" stroke="#000" stroke-width="1.5"/>
+    <!-- Far perspective (pull) -->
+    <rect x="8" y="16" width="48" height="32" rx="2" fill="none" stroke="#000" stroke-width="1" opacity="0.5"/>
+    <!-- Subject in center -->
+    <circle cx="32" cy="32" r="4" fill="#000"/>
+    <!-- Opposing arrows -->
+    <path d="M 2 32 L 8 32 M 4 28 L 2 32 L 4 36" fill="none" stroke="#000" stroke-width="1"/>
+    <path d="M 62 32 L 56 32 M 60 28 L 62 32 L 60 36" fill="none" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>

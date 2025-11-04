@@ -1,0 +1,12 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Magnifying glass -->
+  <circle cx="28" cy="28" r="10" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Handle -->
+  <line x1="36" y1="36" x2="48" y2="48" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Detail lines inside -->
+  <line x1="22" y1="26" x2="34" y2="26" stroke="#000" stroke-width="1"/>
+  <line x1="22" y1="30" x2="34" y2="30" stroke="#000" stroke-width="1"/>
+  <!-- Plus indicator -->
+  <path d="M 44 12 L 44 16 M 42 14 L 46 14" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,333 @@
+================================================================================
+IAMCCS QE PROMPT ENHANCER - DETAILED PRESET LIST
+================================================================================
+
+Author: Carmine Cristallo Scalzi (IAMCCS)
+Website: www.carminecristalloscalzi.com | www.faidenblass.com
+GitHub: www.github.com/IAMCCS
+Patreon: www.patreon.com/IAMCCS
+Repository: IAMCCS_QE_prompt_enhancer
+
+================================================================================
+📷 CAMERA ANGLES (20 presets)
+================================================================================
+
+1.  Back View 🔄
+    → View from the back side perspective
+
+2.  Front View 👁️
+    → from the front-side perspective
+
+3.  Side View 🔀
+    → side perspective, side view
+
+4.  Left 45° ↶
+    → camera viewpoint rotated 45° to the left
+
+5.  Right 45° ↷
+    → camera viewpoint rotated 45° to the right
+
+6.  90° Left ⬅️
+    → view the scene from the left side at 90°
+
+7.  90° Right ➡️
+    → view the scene from the right side at 90°
+
+8.  Low Angle ⬆️
+    → low-angle perspective
+
+9.  High Angle ⬇️
+    → high-angle perspective, looking down
+
+10. Worm's Eye 👀
+    → worm's-eye view, upward view
+
+11. Bird's Eye 🦅
+    → Change the scene to a birds eye view
+
+12. Zoom Out 🔭
+    → zoom out the camera, show the whole scene
+
+13. Zoom In 🔍
+    → zoom in the camera, focus on details
+
+14. Flip Scene 🔃
+    → flip the whole scene around
+
+15. Other Side ↔️
+    → view from the other side
+
+16. Behind Head 🎥
+    → from the perspective behind someone's head
+
+17. Behind Back 🚶
+    → from a behind-the-back perspective
+
+18. Reverse View 🔁
+    → reverse viewpoint
+
+19. 3/4 View 📹
+    → make a three-quarters camera view
+
+20. Close Up 🔬
+    → Show a microscopic view of the object
+
+
+================================================================================
+🎨 STYLE EFFECTS (17 presets)
+================================================================================
+
+1.  Photorealistic 📸
+    → Change the style to photorealistic, extremely photo-realistic.
+
+2.  Pencil Sketch ✏️
+    → pencil sketch, pencil drawing
+
+3.  Line Art 🖊️
+    → Change the image into line art, draft lines
+
+4.  Sepia Tone 🟤
+    → Change the scene to sepia tone
+
+5.  Black & White ⚫
+    → convert to black and white, monochrome
+
+6.  Add Colors 🌈
+    → Add colours to the scene
+
+7.  Enhance ✨
+    → enhance image quality, improve clarity and detail
+
+8.  Sharpen 🔍
+    → sharpen details, improve edge definition, crisp and clear image
+
+9.  Brighten ☀️
+    → increase brightness and luminosity, improve exposure
+
+10. Contrast 🎨
+    → enhance contrast and color depth, improve dynamic range
+
+11. Color Pop 💥
+    → enhance color saturation and vibrancy, vivid colors
+
+12. Warm Tone 🔥
+    → apply warm color temperature, golden hour effect
+
+13. Cool Tone ❄️
+    → apply cool color temperature, blue hour effect
+
+14. Denoise 🧹
+    → reduce noise and grain, smooth image
+
+15. Add Detail 🔬
+    → add fine details and texture, enhance micro-details
+
+16. Smooth 🧴
+    → smooth skin and surfaces, soft look
+
+17. Stylize 🎭
+    → apply artistic stylization, creative interpretation
+
+
+================================================================================
+🌍 SCENE CHANGES (16 presets)
+================================================================================
+
+1.  Daytime ☀️
+    → Change the scene to day time
+
+2.  Night 🌙
+    → Change the scene to night time
+
+3.  Sunrise 🌅
+    → Change the scene to sunrise
+
+4.  Sunset 🌇
+    → Change the scene to sunset
+
+5.  Heavy Rain 🌧️
+    → Change the weather to heavy rain
+
+6.  Snow ❄️
+    → Change the weather to snow
+
+7.  Fog 🌫️
+    → Change the weather to fog
+
+8.  Clear Sky ☁️
+    → Change the weather to clear sky
+
+9.  Remove BG 🗑️
+    → remove background completely, isolate main subject
+
+10. Blur BG 🌫️
+    → blur background while keeping foreground sharp
+
+11. Clean ✂️
+    → remove unwanted objects and blemishes, clean up artifacts
+
+12. Restore ♻️
+    → restore old or damaged photo, fix artifacts
+
+13. Upscale ⬆️
+    → increase resolution, upscale image while preserving details
+
+14. Fix Face 👤
+    → enhance facial features, improve face details
+
+15. Fix Hands 🖐️
+    → correct hand anatomy, improve hand details
+
+16. Lighting 💡
+    → improve lighting and shadows, balanced illumination
+
+
+================================================================================
+🖼️ MULTI-IMAGE EDITS (16 presets)
+================================================================================
+
+1.  Character Sit 🪑
+    → Put the character from image 1 to sit in the chair from image 2
+
+2.  Change Dress 👗
+    → Change the dress of the character in image 1 with the dress from image 2
+
+3.  Swap Outfit 👔
+    → Replace the outfit in image 1 with the outfit from image 2
+
+4.  Characters Together 👥
+    → Put the characters from image 1, 2 and 3 together embracing
+
+5.  Merge Background 🏞️
+    → Place the subject from image 1 into the background of image 2
+
+6.  Copy Hair Style 💇
+    → Transfer the hairstyle from image 2 to the character in image 1
+
+7.  Transfer Face 😊
+    → Apply the facial features from image 2 to the person in image 1
+
+8.  Blend Objects 🔄
+    → Combine the objects from image 1 and image 2 into a single scene
+
+9.  Copy Pose 🤸
+    → Make the character in image 1 adopt the pose from image 2
+
+10. Scene Merge 🌆
+    → Merge elements from image 1 and image 2 into one coherent scene
+
+11. Object Replace 🔧
+    → Replace the object in image 1 with the object from image 2
+
+12. Add Character 👤
+    → Add the character from image 2 next to the character in image 1
+
+13. Swap Accessories 💍
+    → Transfer the accessories from image 2 to the person in image 1
+
+14. Copy Lighting 🌟
+    → Apply the lighting style from image 2 to image 1
+
+15. Blend Styles 🖌️
+    → Combine the artistic style of image 2 with the content of image 1
+
+16. Group Portrait 📸
+    → Arrange characters from images 1, 2, and 3 in a group portrait
+
+
+================================================================================
+🎯 ADDITIONAL EFFECTS (20 presets)
+================================================================================
+
+1.  Add Motion Blur 💨
+    → Add motion blur effect to create sense of movement
+
+2.  Add Bokeh ✨
+    → Add bokeh effect to background, create depth of field
+
+3.  Add Glow 🌟
+    → Add glow and light rays, ethereal lighting
+
+4.  Add Reflection 🪞
+    → Add realistic reflections and mirror effects
+
+5.  Add Shadows 🌑
+    → Enhance shadows for more dramatic depth
+
+6.  Film Grain 🎞️
+    → Add cinematic film grain effect
+
+7.  Vintage Look 📼
+    → Apply vintage retro aesthetic, aged photo look
+
+8.  HDR Effect 🌈
+    → Apply HDR effect, enhance dynamic range
+
+9.  Tilt Shift 🎪
+    → Apply tilt-shift effect, miniature scene look
+
+10. Lens Flare 🔆
+    → Add lens flare effect for dramatic lighting
+
+11. Vignette ⚫
+    → Add vignette effect, darken edges
+
+12. Chromatic 🎨
+    → Add chromatic aberration effect
+
+13. Oil Painting 🖼️
+    → Transform to oil painting style
+
+14. Watercolor 💧
+    → Apply watercolor painting effect
+
+15. Comic Style 💥
+    → Transform into comic book art style
+
+16. Anime Style 🎌
+    → Convert to anime/manga art style
+
+17. 3D Render 🎮
+    → Make it look like a 3D rendered image
+
+18. Clay Art 🏺
+    → Transform into clay animation style
+
+19. Neon Glow 💡
+    → Add neon glow effect, cyberpunk aesthetic
+
+20. Double Exposure 📷
+    → Create double exposure effect, blend two scenes
+
+
+================================================================================
+ADDITIONAL FEATURES
+================================================================================
+
+MAINTAIN CONSISTENCY (Boolean Toggle)
+→ When enabled, adds " | Maintain the consistency" to the prompt
+→ Helps maintain visual consistency across edits
+→ Only works when a preset is selected
+
+GET POSE IMAGE 3 (Boolean Toggle)
+→ When enabled, adds " | Get the pose of image 3" to the prompt
+→ Can work independently without selecting any preset
+→ Useful for pose transfer operations
+
+CLEAR SELECTION (Button)
+→ Resets the prompt output to empty string
+→ Clears search filter
+→ Deselects all cards
+
+SEARCH (Text Input)
+→ Filter presets by label name
+→ Real-time filtering as you type
+→ Selected cards remain visible during search
+
+
+================================================================================
+TOTAL: 89 PRESET PROMPTS ACROSS 5 CATEGORIES
+================================================================================
+
+Last Updated: 2025-10-12
+Version: 1.0

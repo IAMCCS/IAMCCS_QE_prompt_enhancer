@@ -1,0 +1,9 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Frame -->
+  <rect x="12" y="12" width="40" height="40" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
+  <!-- Center bright -->
+  <circle cx="32" cy="32" r="12" fill="none" stroke="#000" stroke-width="1" opacity="0.8"/>
+  <!-- Vignette darkening (outer) -->
+  <circle cx="32" cy="32" r="18" fill="none" stroke="#000" stroke-width="1" opacity="0.3"/>
+</svg>

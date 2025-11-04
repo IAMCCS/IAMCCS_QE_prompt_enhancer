@@ -1,0 +1,26 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .stroke-primary { stroke: #2d3436; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .fill-primary { fill: #2d3436; }
+    </style>
+  </defs>
+
+  <!-- Magnifying glass body -->
+  <circle cx="26" cy="26" r="14" class="stroke-primary"/>
+
+  <!-- Magnifying glass handle -->
+  <line x1="37" y1="37" x2="52" y2="52" class="stroke-primary"/>
+
+  <!-- Interior detail lines - refined and balanced -->
+  <line x1="20" y1="22" x2="32" y2="22" class="stroke-primary"/>
+  <line x1="20" y1="28" x2="32" y2="28" class="stroke-primary"/>
+  <line x1="20" y1="34" x2="28" y2="34" class="stroke-primary"/>
+
+  <!-- Plus indicator - positioned elegantly in top-right -->
+  <g transform="translate(48, 14)">
+    <circle cx="0" cy="0" r="6" class="stroke-primary"/>
+    <line x1="-2" y1="0" x2="2" y2="0" class="stroke-primary"/>
+    <line x1="0" y1="-2" x2="0" y2="2" class="stroke-primary"/>
+  </g>
+</svg>

@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": 1,
+      "type": "IAMCCS_QE_PromptEnhancer",
+      "pos": [100, 100],
+      "size": [320, 400],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "links": [1],
+          "slot_index": 0
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        1,
+        "",
+        false
+      ]
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [500, 100],
+      "size": [400, 200],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 1
+        },
+        {
+          "name": "clip",
+          "type": "CLIP"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING"
+        }
+      ],
+      "properties": {}
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "STRING"]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}

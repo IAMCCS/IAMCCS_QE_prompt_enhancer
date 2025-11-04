@@ -1,0 +1,9 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Smooth wave -->
+  <path d="M 14 32 Q 22 24 30 32 T 46 32" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+  <!-- Before (rough) -->
+  <path d="M 14 48 L 18 44 L 22 50 L 26 46 L 30 50 L 34 44 L 38 50" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Arrow between -->
+  <path d="M 42 38 L 42 42" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

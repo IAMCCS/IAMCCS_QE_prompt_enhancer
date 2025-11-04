@@ -1,0 +1,17 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Circular rotation around subject -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Subject in center -->
+    <circle cx="32" cy="32" r="4" fill="#000"/>
+    <!-- Circular path -->
+    <circle cx="32" cy="32" r="14" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Camera positions on circle -->
+    <circle cx="46" cy="32" r="2" fill="none" stroke="#000" stroke-width="1"/>
+    <circle cx="32" cy="18" r="2" fill="none" stroke="#000" stroke-width="1"/>
+    <circle cx="18" cy="32" r="2" fill="none" stroke="#000" stroke-width="1"/>
+    <!-- Rotation arrow -->
+    <path d="M 50 24 Q 56 32 50 40" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 48 40 L 50 40 L 50 38" fill="none" stroke="#000" stroke-width="1.5"/>
+  </g>
+</svg>

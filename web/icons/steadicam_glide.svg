@@ -1,0 +1,13 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="white"/>
+  <!-- Smooth gliding motion -->
+  <g stroke="#000" stroke-width="1.5" fill="none" stroke-linecap="round">
+    <!-- Smooth curve path -->
+    <path d="M 12 32 Q 32 20 52 32" fill="none" stroke="#000" stroke-width="1.5"/>
+    <!-- Camera symbol -->
+    <rect x="28" y="26" width="8" height="6" rx="1"/>
+    <circle cx="32" cy="29" r="1.5" fill="#000"/>
+    <!-- Motion indicator (smooth lines) -->
+    <path d="M 12 40 Q 32 50 52 40" fill="none" stroke="#000" stroke-width="1" opacity="0.5"/>
+  </g>
+</svg>
