@@ -27,10 +27,10 @@ Restart ComfyUI to load the node.
 ## Usage
 
 1. **Add Node**: Search for "IAMCCS QE Prompt Enhancer" in ComfyUI
-2. **Select Prompt**: Click any button to select a preset prompt
-3. **Custom Input**: Optionally type custom prompt in the text field
-4. **Connect**: Connect output to your text encoder or other text nodes
-5. **Append Mode**: Toggle to combine preset + custom prompts
+2. **Select Prompt**: scegli tramite le anteprime (card) oppure dal dropdown `preset_prompt` sincronizzato
+3. **Search**: usa il campo "Search prompts..." per filtrare rapidamente le anteprime
+4. **Connect**: collega l'uscita al tuo text encoder o ad altri nodi di testo
+5. **Append Mode**: puoi combinare prompt selezionato e altri controlli del nodo (es. consistenza, pose)
 
 ![2nd image](assets/image_2.png)
 
@@ -40,6 +40,18 @@ This node is specifically designed for Qwen Image Edit 2509 workflows
 
 [Image Input] → [IAMCCS QE Prompt Enhancer] → [Text Encoder] → [Qwen Image Edit 2509]
 
+### Toolbar e controlli rapidi
+
+- Keep selection: evita il reset automatico di selezione card e dropdown dopo l'esecuzione, mantenendo l'ultima scelta.
+- Dark previews: anteprime su sfondo nero con icone bianche per un migliore contrasto visivo.
+- Clear Selection: cancella la selezione corrente (card evidenziate e valore del dropdown).
+- Selected pill: indicatore compatto che appare quando c'è una selezione attiva.
+- Maintain consistency: aggiunge una traccia testuale per mantenere coerenza visiva.
+- Get pose image 3: aggiunge una traccia testuale per usare la posa dell'immagine 3.
+- QwenVL: prompt esclusivo generato lato testo; pensato per l'uso con il modello `qwen_vl`. Un esempio d'uso sarà incluso nei prossimi workflow IAMCCS.
+
+![Third image](assets/image_3.png)
+
 ### If my work helped you, and you’d like to say thanks — grab me a coffee ☕
 
 <a href="https://www.buymeacoffee.com/iamccs" target="_blank">
@@ -48,11 +60,8 @@ This node is specifically designed for Qwen Image Edit 2509 workflows
 
 ### Example Workflow
 
-1. Load your image
-2. Click "Fix Face" button in QE Prompt Enhancer
-3. Prompt "Enhance facial features and details" is automatically set
-4. Connect to Qwen image editor for processing
-
+Further instructions for the workflow example
+To load the workflow as intended, you’ll also need to install the IAMCCS_annotate custom node from this repository.
 
 ## Credits
 

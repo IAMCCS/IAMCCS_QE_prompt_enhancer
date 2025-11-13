@@ -40,8 +40,8 @@ function getStyleCards(prompts, onSelect) {
                 });
                 // Add selected to this card
                 this.classList.add("selected");
-                // Call callback with full prompt
-                onSelect(prompt.prompt);
+                // Call callback with the entire prompt object
+                onSelect(prompt);
             }
         }, [
             // Image preview area with icon/image support
@@ -132,13 +132,15 @@ app.registerExtension({
                 const node = this;
 
                 const FIXED_WIDTH = 580;
-                const FIXED_HEIGHT = 950;
+                const FIXED_HEIGHT = 780;
                 this.setSize([FIXED_WIDTH, FIXED_HEIGHT]);
                 this.resizable = false;
 
                 const presetWidget = this.widgets.find(w => w.name === "preset");
+                const dropdownWidget = this.widgets.find(w => w.name === "preset_prompt");
                 const maintainConsistencyWidget = this.widgets.find(w => w.name === "maintain_consistency");
                 const getPoseWidget = this.widgets.find(w => w.name === "get_pose_image3");
+                const qwenVLWidget = this.widgets.find(w => w.name === "QwenVL");
                 const promptWidget = this.widgets.find(w => w.name === "selected_prompt");
 
                 if (!promptWidget) {
@@ -149,8 +151,27 @@ app.registerExtension({
                 promptWidget.type = "converted-widget";
                 promptWidget.computeSize = () => [0, -4];
 
-                let currentPreset = presetWidget ? presetWidget.value : "Camera Angles 📷";
+                const DEFAULT_PRESET = "Camera Angles 📷";
+                let currentPreset = DEFAULT_PRESET;
+                if (presetWidget && presetWidget.value !== DEFAULT_PRESET) {
+                    try { presetWidget.value = DEFAULT_PRESET; } catch {}
+                }
                 let isInitializing = true;
+                const PLACEHOLDER = "— Select a prompt —";
+
+                // Removed custom purple styling to ensure widget visibility across themes
+
+                // Helpers for dropdown display formatting and full prompt mapping
+                const normalize = (s) => (s || "").replace(/\s+/g, " ").trim();
+                const truncatePrompt = (s, max = 70) => {
+                    const t = normalize(s);
+                    return t.length > max ? t.slice(0, max) + "..." : t;
+                };
+
+                // Format dropdown entry without adding any new parentheses
+                const formatDropdownEntry = (obj) => {
+                    return `${obj.label} | ${truncatePrompt(obj.prompt)}`;
+                };
 
                 const loadPrompts = async () => {
                     try {
@@ -203,19 +224,68 @@ app.registerExtension({
                         if (searchInput) searchInput.value = "";
                     }
 
-                    const styleCards = getStyleCards(prompts, (selectedPrompt) => {
-                        promptWidget.value = selectedPrompt;
-                        console.log("[QE Enhancer] Selected:", selectedPrompt);
+                    const styleCards = getStyleCards(prompts, (pObj) => {
+                        // Set selected prompt only when user explicitly clicks a card
+                        promptWidget.value = pObj.prompt;
+                        console.log("[QE Enhancer] Selected:", pObj.prompt);
+                        // Sync dropdown selection to match the clicked card
+                        if (dropdownWidget) {
+                            const combined = formatDropdownEntry(pObj);
+                            dropdownWidget.value = combined;
+                            dropdownWidget.callback?.call(dropdownWidget, combined);
+                        }
+                        setSelectedPill(true);
                     });
 
                     grid.append(...styleCards);
+                    // After rebuilding, re-apply dark previews if enabled
+                    try { applyDarkPreviews(!!node._qeDarkPreviews, grid); } catch {}
 
-                    if (styleCards.length > 0) {
-                        setTimeout(() => {
-                            styleCards[0].classList.add("selected");
-                            promptWidget.value = prompts[0].prompt;
-                        }, 50);
+                    // Do NOT auto-select first card: leave all unselected until user chooses
+                    promptWidget.value = ""; // ensure cleared on preset change / initial load
+                    // Clear dropdown selection
+                    if (dropdownWidget) {
+                        dropdownWidget.value = PLACEHOLDER;
                     }
+                };
+
+                // Helper: apply dark preview mode styles
+                const applyDarkPreviews = (enabled, gridEl) => {
+                    if (!gridEl) return;
+                    gridEl.querySelectorAll(".iamccs-qe-prompt-style-image").forEach(area => {
+                        area.style.backgroundColor = enabled ? "#000" : "";
+                        // IMG icons
+                        const img = area.querySelector("img");
+                        if (img) {
+                            img.style.filter = enabled ? "invert(1) grayscale(1) brightness(2)" : "";
+                        }
+                        // Emoji/text fallback
+                        if (!img) {
+                            area.style.color = enabled ? "#fff" : "";
+                        }
+                    });
+                };
+
+                const buildDropdownValues = (presetsMap, presetName) => {
+                    const list = presetsMap[presetName] || [];
+                    const values = [PLACEHOLDER, ...list.map(p => formatDropdownEntry(p))];
+                    const map = {};
+                    list.forEach(p => { map[formatDropdownEntry(p)] = p.prompt; });
+                    return { values, map };
+                };
+
+                const updateDropdown = (presetsMap, presetName, widget) => {
+                    if (!widget) return;
+                    const { values, map } = buildDropdownValues(presetsMap, presetName);
+                    widget.options = widget.options || {};
+                    widget.options.values = values;
+                    if (!values.includes(widget.value)) {
+                        widget.value = PLACEHOLDER;
+                    }
+                    // Save mapping for full prompt restoration
+                    node._qeDropdownMap = map;
+                    // Force redraw if possible
+                    try { app.canvas?.setDirty(true, true); } catch {}
                 };
 
                 loadPrompts().then(presets => {
@@ -226,6 +296,28 @@ app.registerExtension({
                         "btn",
                         $el("div.iamccs-qe-prompt-styles", [
                             $el("div.tools", [
+                                // Toggle: keep selection after execution
+                                $el("label", { className: "qe-toggle keep", style: { display: "inline-flex", alignItems: "center", gap: "6px", marginRight: "10px", fontSize: "12px" } }, [
+                                    $el("input", {
+                                        type: "checkbox",
+                                        onchange: (e) => {
+                                            node._qePersistSelection = !!e.target.checked;
+                                        }
+                                    }),
+                                    $el("span", { textContent: "Keep selection" })
+                                ]),
+                                // Toggle: dark preview mode (black bg, white icons)
+                                $el("label", { className: "qe-toggle dark", style: { display: "inline-flex", alignItems: "center", gap: "6px", marginRight: "10px", fontSize: "12px" } }, [
+                                    $el("input", {
+                                        type: "checkbox",
+                                        onchange: (e) => {
+                                            node._qeDarkPreviews = !!e.target.checked;
+                                            try { applyDarkPreviews(node._qeDarkPreviews, grid); } catch {}
+                                        }
+                                    }),
+                                    $el("span", { textContent: "Dark previews" })
+                                ]),
+                                $el("span", { className: "qe-selected-pill", textContent: "Selected", style: { display: "none", padding: "2px 8px", borderRadius: "999px", background: "#3fb950", color: "#fff", fontSize: "12px", marginRight: "10px", alignItems: "center" } }),
                                 $el("button.delete", {
                                     textContent: "Clear Selection",
                                     onclick: () => {
@@ -238,13 +330,21 @@ app.registerExtension({
                                         });
 
                                         promptWidget.value = "";
+                                        // Reset dropdown to placeholder as well
+                                        if (dropdownWidget) {
+                                            dropdownWidget.value = PLACEHOLDER;
+                                            dropdownWidget.callback?.call(dropdownWidget, PLACEHOLDER);
+                                        }
+                                        // Hide selected pill
+                                        try { setSelectedPill(false); } catch {}
                                         console.log("[QE Enhancer] Prompt cleared - output will be empty string");
                                     }
                                 }),
-                                $el("textarea.search", {
+                                $el("input.search", {
+                                    type: "text",
                                     dir: "ltr",
-                                    rows: 1,
                                     placeholder: "Search prompts...",
+                                    style: { width: "220px", whiteSpace: "nowrap" },
                                     oninput: (e) => {
                                         let value = e.target.value.toLowerCase();
                                         grid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => {
@@ -262,7 +362,59 @@ app.registerExtension({
                         ])
                     );
 
+                    // Helper to show/hide the selection status pill
+                    const setSelectedPill = (on) => {
+                        try {
+                            const pill = selector.element.querySelector(".qe-selected-pill");
+                            if (pill) pill.style.display = on ? "inline-flex" : "none";
+                        } catch {}
+                    };
+
+                    // Prepare dropdown widget UI/behavior
+                    if (dropdownWidget) {
+                        // Force the widget to behave as a dropdown combo, even if defined as STRING in Python
+                        dropdownWidget.type = "combo";
+                        // Initial options for default preset
+                        updateDropdown(presets, currentPreset, dropdownWidget);
+                        const originalDropdownCallback = dropdownWidget.callback;
+                        dropdownWidget.callback = function (value) {
+                            // Ignore placeholder
+                            if (value === PLACEHOLDER) {
+                                // Clear selection state in grid and prompt value
+                                grid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => card.classList.remove("selected"));
+                                promptWidget.value = "";
+                                setSelectedPill(false);
+                            } else {
+                                // Restore the FULL prompt using the map; fallback to parsing
+                                let finalPrompt = (node._qeDropdownMap && node._qeDropdownMap[value]) || (value.includes("|") ? value.split("|").slice(1).join("|").trim() : value);
+                                // If the RHS is wrapped in parentheses, strip them
+                                if (finalPrompt.startsWith("(") && finalPrompt.endsWith(")")) {
+                                    finalPrompt = finalPrompt.slice(1, -1);
+                                }
+                                promptWidget.value = finalPrompt;
+                                // Highlight matching card
+                                grid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => {
+                                    if (card.dataset.prompt === finalPrompt) card.classList.add("selected");
+                                    else card.classList.remove("selected");
+                                });
+                                setSelectedPill(true);
+                            }
+                            if (originalDropdownCallback) originalDropdownCallback.apply(this, arguments);
+                        };
+                    }
+
                     updateGrid(presets, currentPreset, grid, selector);
+                    // Apply dark previews if toggle is on (initial false)
+                    try { applyDarkPreviews(!!node._qeDarkPreviews, grid); } catch {}
+                    // Ensure dropdown shows placeholder and pill is off on first load
+                    try {
+                        if (dropdownWidget) dropdownWidget.value = PLACEHOLDER;
+                        setSelectedPill(false);
+                    } catch {}
+                    // Expose references for later reset (after execution)
+                    node._qeGrid = grid;
+                    node._qePromptWidget = promptWidget;
+                    node._qeDropdownWidget = dropdownWidget;
 
                     // Fix preset initialization bug: force refresh on node creation
                     if (isInitializing && currentPreset === "Camera Angles 📷") {
@@ -280,11 +432,68 @@ app.registerExtension({
                         presetWidget.callback = function (value) {
                             currentPreset = value;
                             updateGrid(presets, currentPreset, grid, selector);
+                            updateDropdown(presets, currentPreset, dropdownWidget);
+                            // Re-apply dark previews on grid rebuild if enabled
+                            try { applyDarkPreviews(!!node._qeDarkPreviews, grid); } catch {}
+                            setSelectedPill(false);
                             if (originalCallback) {
                                 originalCallback.apply(this, arguments);
                             }
                         };
                     }
+
+                    // QwenVL exclusivity UX: when enabled, clear any current selection and dropdown
+                    if (qwenVLWidget) {
+                        const originalQwenCB = qwenVLWidget.callback;
+                        qwenVLWidget.callback = function(value) {
+                            if (value === true) {
+                                try {
+                                    // Clear grid selection
+                                    grid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => card.classList.remove("selected"));
+                                    // Reset dropdown to placeholder and trigger its callback for UI sync
+                                    if (dropdownWidget) {
+                                        dropdownWidget.value = PLACEHOLDER;
+                                        dropdownWidget.callback?.call(dropdownWidget, PLACEHOLDER);
+                                    }
+                                    // Clear prompt widget value so backend will emit only QwenVL text
+                                    promptWidget.value = "";
+                                    setSelectedPill(false);
+                                } catch (e) {
+                                    console.warn("[QE Enhancer] Failed to apply QwenVL exclusivity reset", e);
+                                }
+                            }
+                            if (originalQwenCB) originalQwenCB.apply(this, arguments);
+                        };
+                    }
+
+                    // Clear prompt after node execution (reset for next generation)
+                    const originalOnExecuted = node.onExecuted;
+                    node.onExecuted = function() {
+                        // Call any existing handler first
+                        if (originalOnExecuted) {
+                            originalOnExecuted.apply(this, arguments);
+                        }
+                        try {
+                            const keep = !!this._qePersistSelection;
+                            if (!keep) {
+                                if (this._qePromptWidget) {
+                                    this._qePromptWidget.value = "";
+                                }
+                                if (this._qeGrid) {
+                                    this._qeGrid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => {
+                                        card.classList.remove("selected");
+                                    });
+                                }
+                                if (this._qeDropdownWidget) {
+                                    this._qeDropdownWidget.value = PLACEHOLDER;
+                                }
+                                setSelectedPill(false);
+                            }
+                            console.log("[QE Enhancer] Prompt auto-reset after execution");
+                        } catch (e) {
+                            console.warn("[QE Enhancer] Failed to auto-reset after execution", e);
+                        }
+                    };
                 });
 
                 return result;

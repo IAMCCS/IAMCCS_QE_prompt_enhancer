@@ -98,8 +98,8 @@ Repository: IAMCCS_QE_prompt_enhancer
 7.  Enhance ✨
     → enhance image quality, improve clarity and detail
 
-8.  Sharpen 🔍
-    → sharpen details, improve edge definition, crisp and clear image
+8.  White 🔍
+    → White render
 
 9.  Brighten ☀️
     → increase brightness and luminosity, improve exposure

@@ -25,9 +25,9 @@
     },
     {
       "id": 4,
-      "label": "Sharpen",
+      "label": "White",
       "icon": "icons/sharpen.svg",
-      "prompt": "Sharpen details and improve edge definition"
+      "prompt": "do render to white"
     },
     {
       "id": 5,

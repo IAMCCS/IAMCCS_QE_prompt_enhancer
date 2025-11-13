@@ -62,12 +62,42 @@ class IAMCCS_QE_PromptEnhancer:
     @classmethod
     def INPUT_TYPES(cls):
         """Define inputs - we use a hidden STRING to pass selected prompt"""
+        # Build dropdown values that cover ALL presets so the server-side
+        # validation accepts any selection while the UI can still filter
+        # per-preset. Display is "label | prompt_truncated".
+        try:
+            presets = cls().load_prompts()
+        except Exception:
+            presets = {}
+        def _truncate_70(s: str) -> str:
+            try:
+                s = " ".join((s or "").split())
+                return s if len(s) <= 70 else s[:70] + "..."
+            except Exception:
+                return s
+        dropdown_values = ["— Select a prompt —"]
+        seen = set()
+        for group in presets.values():
+            if not isinstance(group, list):
+                continue
+            for it in group:
+                label = (it.get('label', '') if isinstance(it, dict) else '')
+                prompt = (it.get('prompt', '') if isinstance(it, dict) else '')
+                disp = f"{label} | {_truncate_70(prompt)}"
+                if disp not in seen:
+                    seen.add(disp)
+                    dropdown_values.append(disp)
+
         return {
             "required": {
                 # Preset selector (dropdown)
                 "preset": (["Camera Angles 📷", "Style Effects 🎨", "Scene Changes 🌍", "Multi-Image Edits 🖼️", "Additional Effects 🎯", "Other amazing prompts 😍", "Travel 🌍", "Cinematic Looks 🎞️"], {
                     "default": "Camera Angles 📷"
                 }),
+                # Dropdown with names + summaries of prompts (full universe).
+                # The web UI narrows visible options per selected preset, but any
+                # chosen value remains valid server-side.
+                "preset_prompt": (dropdown_values, {"default": "— Select a prompt —"}),
                 # Boolean buttons for additional prompts (clickable buttons)
                 "maintain_consistency": ("BOOLEAN", {
                     "default": False
@@ -75,9 +105,14 @@ class IAMCCS_QE_PromptEnhancer:
                 "get_pose_image3": ("BOOLEAN", {
                     "default": False
                 }),
+                # QwenVL trigger (purple styled in frontend)
+                "QwenVL": ("BOOLEAN", {
+                    "default": False
+                }),
                 # This will be controlled by the custom widget
                 "selected_prompt": ("STRING", {
-                    "default": "View from the back side perspective",
+                    # Start with empty prompt by default; user must select one manually
+                    "default": "",
                     "multiline": True
                 }),
             },
@@ -89,19 +124,41 @@ class IAMCCS_QE_PromptEnhancer:
     CATEGORY = "IAMCCS/Prompt"
     OUTPUT_NODE = False
 
-    def get_prompt(self, preset="Camera Angles 📷", maintain_consistency=False, get_pose_image3=False, selected_prompt=""):
+    def get_prompt(self, preset="Camera Angles 📷", preset_prompt="— Select a prompt —", maintain_consistency=False, get_pose_image3=False, QwenVL=False, selected_prompt=""):
         """Return the selected prompt text with optional additions"""
         # The widget will populate selected_prompt with the full prompt text
         # If empty string, keep it empty (Clear Selection was pressed)
         if not selected_prompt or selected_prompt.strip() == "":
-            # Empty string means no prompt (Clear Selection)
-            final_prompt = ""
+            # Try to use dropdown selection if provided
+            dropdown_val = (preset_prompt or "").strip()
+            # Ignore placeholder
+            if dropdown_val and dropdown_val != "— Select a prompt —":
+                # If value contains "label | prompt", extract the right-hand side as the actual prompt
+                if "|" in dropdown_val:
+                    parts = dropdown_val.split("|", 1)
+                    final_prompt = parts[1].strip()
+                else:
+                    final_prompt = dropdown_val
+            else:
+                # Empty string means no prompt (Clear Selection)
+                final_prompt = ""
         else:
             final_prompt = selected_prompt
 
-        # Add consistency prompt if enabled (only if there's a base prompt)
-        if final_prompt and maintain_consistency:
-            final_prompt += " | Maintain the consistency"
+        # If QwenVL is enabled, output ONLY the QwenVL meta-prompt (exclusive)
+        if QwenVL:
+            qwen_prompt = (
+                "You are professional photographer, write a simple prompt, based on this image and include the following format from your response:\n"
+                "character pose+camera angles+environment"
+            )
+            return (qwen_prompt,)
+
+        # Add consistency prompt if enabled (now independent of base prompt)
+        if maintain_consistency:
+            if final_prompt:
+                final_prompt += " | Maintain the consistency"
+            else:
+                final_prompt = "Maintain the consistency"
 
         # Add pose prompt if enabled (can work independently)
         if get_pose_image3:

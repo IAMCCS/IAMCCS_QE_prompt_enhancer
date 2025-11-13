@@ -1,11 +1,11 @@
 {
   "presets": {
     "Camera Angles 📷": [
-      {"slot": 1, "label": "Back View 🔄", "icon": "icons/back_view.svg", "prompt": "从人物的背面视角生成一张新的图像，但同时重新生成与该视角一致的背景，使背景的光线、角度和构图都与新的\"背面视角\"保持协调。人物的身份、发型、服装和身体比例必须与原始图像完全一致。场景的风格、光照和色调应保持与原图相同的艺术风格与视觉一致性。"},
+      {"slot": 1, "label": "Back View 🔄", "icon": "icons/back_view.svg", "prompt": "(Generate a new image from a rear view of the character) 从人物的背面视角生成一张新的图像，但同时重新生成与该视角一致的背景，使背景的光线、角度和构图都与新的\"背面视角\"保持协调。人物的身份、发型、服装和身体比例必须与原始图像完全一致。场景的风格、光照和色调应保持与原图相同的艺术风格与视觉一致性。"},
       {"slot": 2, "label": "Front View 👁️", "icon": "icons/front_view.svg", "prompt": "Change image 1 View to the front-side perspective. Ensure that other elements in the background also change."},
       {"slot": 3, "label": "Side View 🔀", "icon": "icons/side_view.svg", "prompt": "Change image 1 View to side perspective, side view. Ensure that other elements in the background also change."},
-      {"slot": 4, "label": "Left 45° ↶", "icon": "icons/left_45.svg", "prompt": "Change image 1 camera viewpoint rotated 45° to the left. Ensure that other elements in the background also change."},
-      {"slot": 5, "label": "Right 45° ↷", "icon": "icons/right_45.svg", "prompt": "Change image 1 camera viewpoint rotated 45° to the right. Ensure that other elements in the background also change"},
+      {"slot": 4, "label": "Left 45° ↶", "icon": "icons/left_45.svg", "prompt": " 将镜头向左旋转45度（Rotate the camera 45 degrees to the left. Ensure that other elements in the background also change."},
+      {"slot": 5, "label": "Right 45° ↷", "icon": "icons/right_45.svg", "prompt": " 将镜头向右旋转45度（Rotate the camera 45 degrees to the right.）Ensure that other elements in the background also change"},
       {"slot": 6, "label": "90° Left ⬅️", "icon": "icons/90_left.svg", "prompt": "Change image 1 view scene from the left side at 90°. Ensure that other elements in the background also change."},
       {"slot": 7, "label": "90° Right ➡️", "icon": "icons/90_right.svg", "prompt": "Change image 1 View scene from the right side at 90°"},
       {"slot": 8, "label": "Low Angle ⬆️", "icon": "icons/low_angle.svg", "prompt": "change the perspective view of image 1 to low-angle perspective"},
@@ -13,14 +13,14 @@
       {"slot": 10, "label": "Worm's Eye 👀", "icon": "icons/worms_eye.svg", "prompt": "change the perspective view of image 1 to worm's-eye view, upward view"},
       {"slot": 11, "label": "Bird's Eye 🦅", "icon": "icons/birds_eye.svg", "prompt": "Change the scene to a birds eye view"},
       {"slot": 12, "label": "Zoom Out 🔭", "icon": "icons/zoom_out.svg", "prompt": "change view of image 1 to zoom out the camera, show the whole scene"},
-      {"slot": 13, "label": "Zoom In 🔍", "icon": "icons/zoom_in.svg", "prompt": "change view of image 1 to zoom in the camera, focus on details"},
+      {"slot": 13, "label": "Zoom In 🔍", "icon": "icons/zoom_in.svg", "prompt": "将镜头向前移动（Move the camera forward.）- focus on details"},
       {"slot": 14, "label": "Flip Scene 🔃", "icon": "icons/flip_scene.svg", "prompt": "change view of image 1 to a flip the whole scene around view"},
       {"slot": 15, "label": "Other Side ↔️", "icon": "icons/other_side.svg", "prompt": "change the image 1 view to the other side view"},
       {"slot": 16, "label": "Behind Head 🎥", "icon": "icons/behind_head.svg", "prompt": "change the image 1 view to the perspective behind someone's head view"},
       {"slot": 17, "label": "Behind Back 🚶", "icon": "icons/behind_back.svg", "prompt": "change the image 1 view to a behind-the-back perspective view"},
       {"slot": 18, "label": "Reverse View 🔁", "icon": "icons/reverse_view.svg", "prompt": "change the image 1 view to a reverse viewpoint"},
       {"slot": 19, "label": "3/4 View 📹", "icon": "icons/3_4_view.svg", "prompt": "change the image 1 view to three-quarters camera view"},
-      {"slot": 20, "label": "Close Up 🔬", "icon": "icons/close_up.svg", "prompt": "change the image 1 view to a microscopic view of the object"}
+      {"slot": 20, "label": "Close Up 🔬", "icon": "icons/close_up.svg", "prompt": "将镜头转为特写镜头（Turn the camera to a close-up."}
     ],
     "Style Effects 🎨": [
       {"slot": 1, "label": "Photorealistic 📸", "icon": "icons/photorealistic.svg", "prompt": "Change the style to photorealistic, extremely photo-realistic."},
@@ -30,7 +30,7 @@
       {"slot": 5, "label": "Black & White ⚫", "icon": "icons/black_white.svg", "prompt": "convert to black and white, monochrome"},
       {"slot": 6, "label": "Add Colors 🌈", "icon": "icons/add_colors.svg", "prompt": "Add colours to the scene"},
       {"slot": 7, "label": "Enhance ✨", "icon": "icons/enhance.svg", "prompt": "enhance image quality, improve clarity and detail"},
-      {"slot": 8, "label": "Sharpen 🔍", "icon": "icons/sharpen.svg", "prompt": "sharpen details, improve edge definition, crisp and clear image"},
+      {"slot": 8, "label": "White 🔍", "icon": "icons/sharpen.svg", "prompt": "do render to white"},
       {"slot": 9, "label": "Brighten ☀️", "icon": "icons/brighten.svg", "prompt": "increase brightness and luminosity, improve exposure"},
       {"slot": 10, "label": "Contrast 🎨", "icon": "icons/contrast.svg", "prompt": "enhance contrast and color depth, improve dynamic range"},
       {"slot": 11, "label": "Color Pop 💥", "icon": "icons/color_pop.svg", "prompt": "enhance color saturation and vibrancy, vivid colors"},
@@ -65,16 +65,16 @@
       {"slot": 3, "label": "Swap Outfit 👔", "icon": "icons/swap_outfit.svg", "prompt": "Replace the outfit in image 1 with the outfit from image 2"},
       {"slot": 4, "label": "Characters Together 👥", "icon": "icons/characters_together.svg", "prompt": "Put the characters from image 1, 2 and 3 together embracing"},
       {"slot": 5, "label": "Merge Background 🏞️", "icon": "icons/merge_background.svg", "prompt": "Place the subject from image 1 into the background of image 2"},
-      {"slot": 6, "label": "Copy Hair Style 💇", "icon": "icons/copy_hairstyle.svg", "prompt": "Transfer the hairstyle from image 2 to the character in image 1"},
-      {"slot": 7, "label": "Transfer Face 😊", "icon": "icons/transfer_face.svg", "prompt": "Transfer the face in image 1 to the face in image 2, mantain the proportions."},
+      {"slot": 6, "label": "Copy Hair Style 💇", "icon": "icons/copy_hairstyle.svg", "prompt": "Transfer the hairstyle from image 1 to the character in image 2"},
+      {"slot": 7, "label": "Transfer Face 😊", "icon": "icons/transfer_face.svg", "prompt": "combine the head and the hair from image 1 with the body of image 2 to make one coherent person with correct anatomical proportions. Preserve the lighting, environment and background from the image 2."},
       {"slot": 8, "label": "Blend Objects 🔄", "icon": "icons/blend_objects.svg", "prompt": "Combine the objects from image 1 and image 2 into a single scene"},
       {"slot": 9, "label": "Copy Pose 🤸", "icon": "icons/copy_pose.svg", "prompt": "Make the character in image 1 adopt the pose from image 2"},
       {"slot": 10, "label": "Scene Merge 🌆", "icon": "icons/scene_merge.svg", "prompt": "Merge elements from image 1 and image 2 into one coherent scene"},
       {"slot": 11, "label": "Object Replace 🔧", "icon": "icons/object_replace.svg", "prompt": "Replace the object in image 1 with the object from image 2"},
-      {"slot": 12, "label": "Add Character 👤", "icon": "icons/add_character.svg", "prompt": "Add the character from image 2 next to the character in image 1"},
-      {"slot": 13, "label": "Swap Accessories 💍", "icon": "icons/swap_accessories.svg", "prompt": "Transfer the accessories from image 2 to the person in image 1"},
-      {"slot": 14, "label": "Copy Lighting 🌟", "icon": "icons/copy_lighting.svg", "prompt": "Apply the lighting style from image 2 to image 1"},
-      {"slot": 15, "label": "Blend Styles 🖌️", "icon": "icons/blend_styles.svg", "prompt": "Combine the artistic style of image 2 with the content of image 1"},
+      {"slot": 12, "label": "Add Character 👤", "icon": "icons/add_character.svg", "prompt": "Add the character from image 1 next to the character in image 2"},
+      {"slot": 13, "label": "Swap Accessories 💍", "icon": "icons/swap_accessories.svg", "prompt": "Transfer the accessories from image 1 to the person in image 2"},
+      {"slot": 14, "label": "Copy Lighting 🌟", "icon": "icons/copy_lighting.svg", "prompt": "Apply the lighting style from image 1 to image 2"},
+      {"slot": 15, "label": "Blend Styles 🖌️", "icon": "icons/blend_styles.svg", "prompt": "Combine the artistic style of image 1 with the content of image 2"},
       {"slot": 16, "label": "Group Portrait 📸", "icon": "icons/group_portrait.svg", "prompt": "Arrange characters from images 1, 2, and 3 in a group portrait"}
     ],
     "Additional Effects 🎯": [
