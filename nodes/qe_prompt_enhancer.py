@@ -105,6 +105,10 @@ class IAMCCS_QE_PromptEnhancer:
                 "get_pose_image3": ("BOOLEAN", {
                     "default": False
                 }),
+                # Relight toggle (adds Chinese relight prompt)
+                "relight": ("BOOLEAN", {
+                    "default": False
+                }),
                 # QwenVL trigger (purple styled in frontend)
                 "QwenVL": ("BOOLEAN", {
                     "default": False
@@ -124,7 +128,7 @@ class IAMCCS_QE_PromptEnhancer:
     CATEGORY = "IAMCCS/Prompt"
     OUTPUT_NODE = False
 
-    def get_prompt(self, preset="Camera Angles 📷", preset_prompt="— Select a prompt —", maintain_consistency=False, get_pose_image3=False, QwenVL=False, selected_prompt=""):
+    def get_prompt(self, preset="Camera Angles 📷", preset_prompt="— Select a prompt —", maintain_consistency=False, get_pose_image3=False, relight=False, QwenVL=False, selected_prompt=""):
         """Return the selected prompt text with optional additions"""
         # The widget will populate selected_prompt with the full prompt text
         # If empty string, keep it empty (Clear Selection was pressed)
@@ -166,6 +170,13 @@ class IAMCCS_QE_PromptEnhancer:
                 final_prompt += " | Get the pose of image 3"
             else:
                 final_prompt = "Get the pose of image 3"
+
+        # Add relight prompt if enabled (can work independently)
+        if relight:
+            if final_prompt:
+                final_prompt += " | 重新照明"
+            else:
+                final_prompt = "重新照明"
 
         return (final_prompt,)
 

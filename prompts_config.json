@@ -222,6 +222,30 @@
       "prompt": "Apply widescreen cinematic framing"
     },
     {
+      "id": 105,
+      "label": "Wide Angle 📡",
+      "icon": "icons/wide_angle_v2.svg",
+      "prompt": "Turn the camera to a wide-angle lens"
+    },
+    {
+      "id": 106,
+      "label": "Ultra Wide Angle 🔭",
+      "icon": "icons/ultra_wide_angle_v2.svg",
+      "prompt": "Turn the camera to an ultra wide-angle lens"
+    },
+    {
+      "id": 107,
+      "label": "Ultra Close Up 🔬",
+      "icon": "icons/ultra_close_up_v2.svg",
+      "prompt": "Turn the camera to an ultra close-up lens"
+    },
+    {
+      "id": 108,
+      "label": "Fish-Eye Lens 🌀",
+      "icon": "icons/fish_eye.svg",
+      "prompt": "Turn the camera to a fish-eye lens"
+    },
+    {
       "id": 37,
       "label": "Airplane ✈️",
       "icon": "icons/airplane.svg",

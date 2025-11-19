@@ -70,7 +70,20 @@ Repository: IAMCCS_QE_prompt_enhancer
     → make a three-quarters camera view
 
 20. Close Up 🔬
-    → Show a microscopic view of the object
+    → Show a close up of the object
+
+21. Wide Angle 📡
+    → Show a wide angle view of the object
+
+22. Ultra Wide Angle 🔭
+    → Show an ultra wide angle view of the object
+
+23. Ultra Close Up 🔬
+    → Show a extreme close up view of the object
+
+24. Fish-Eye Lens 🌀
+    → Show a fish-eye lens look view of the object
+
 
 
 ================================================================================

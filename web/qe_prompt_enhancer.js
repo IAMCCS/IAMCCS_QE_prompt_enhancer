@@ -75,10 +75,10 @@ function createIconPreview(prompt) {
             const img = document.createElement("img");
             // Handle relative paths to icons folder
             if (prompt.icon.startsWith("icons/")) {
-                // Icons are served via ComfyUI's /extensions endpoint
-                // ComfyUI serves: /extensions/{custom_node_name}/web/{file}
+                // Cache-bust query param using slot + date so new SVGs show immediately
                 const iconName = prompt.icon.replace("icons/", "");
-                img.src = `/extensions/IAMCCS_QE_prompt_enhancer/icons/${iconName}`;
+                const versionTag = (prompt.slot ? `v=${prompt.slot}-${new Date().getFullYear()}${(new Date().getMonth()+1)}${new Date().getDate()}` : "v=1");
+                img.src = `/extensions/IAMCCS_QE_prompt_enhancer/icons/${iconName}?${versionTag}`;
                 console.log("[QE Enhancer] Loading icon from /extensions:", img.src);
             } else {
                 img.src = prompt.icon;
@@ -132,7 +132,7 @@ app.registerExtension({
                 const node = this;
 
                 const FIXED_WIDTH = 580;
-                const FIXED_HEIGHT = 780;
+                const FIXED_HEIGHT = 920;
                 this.setSize([FIXED_WIDTH, FIXED_HEIGHT]);
                 this.resizable = false;
 
@@ -140,6 +140,7 @@ app.registerExtension({
                 const dropdownWidget = this.widgets.find(w => w.name === "preset_prompt");
                 const maintainConsistencyWidget = this.widgets.find(w => w.name === "maintain_consistency");
                 const getPoseWidget = this.widgets.find(w => w.name === "get_pose_image3");
+                const relightWidget = this.widgets.find(w => w.name === "relight");
                 const qwenVLWidget = this.widgets.find(w => w.name === "QwenVL");
                 const promptWidget = this.widgets.find(w => w.name === "selected_prompt");
 
@@ -148,8 +149,61 @@ app.registerExtension({
                     return result;
                 }
 
-                promptWidget.type = "converted-widget";
-                promptWidget.computeSize = () => [0, -4];
+                // Hide header widgets we mirror inside padding tools
+                const hideHeaderWidget = (w) => {
+                    if (!w) return;
+                    w.type = "converted-widget";
+                    w.computeSize = () => [0, -4];
+                };
+                hideHeaderWidget(promptWidget);
+                // Fully hide maintain_consistency header widget (use toggle in padding)
+                if (maintainConsistencyWidget) {
+                    try {
+                        maintainConsistencyWidget.hidden = true;
+                        maintainConsistencyWidget.type = "converted-widget";
+                        maintainConsistencyWidget.draw = () => {};
+                        maintainConsistencyWidget.computeSize = () => [0, -4];
+                    } catch {}
+                }
+                // Ensure the preset_prompt header widget remains visible and functional
+                if (dropdownWidget) {
+                    try {
+                        dropdownWidget.hidden = false;
+                        // Remove any previous overrides that hid it
+                        if (dropdownWidget.draw && dropdownWidget.draw.toString && dropdownWidget.draw.toString().includes('=> {}')) {
+                            delete dropdownWidget.draw;
+                        }
+                        if (dropdownWidget.computeSize && dropdownWidget.computeSize.toString && dropdownWidget.computeSize.toString().includes('[0, -4]')) {
+                            delete dropdownWidget.computeSize;
+                        }
+                    } catch {}
+                }
+                // Fully hide get_pose_image3 header widget (use toggle in padding)
+                if (getPoseWidget) {
+                    try {
+                        getPoseWidget.hidden = true;
+                        getPoseWidget.type = "converted-widget";
+                        getPoseWidget.draw = () => {};
+                        getPoseWidget.computeSize = () => [0, -4];
+                    } catch {}
+                }
+                // Hide relight header widget but preserve original type for proper serialization
+                if (relightWidget) {
+                    try {
+                        relightWidget.hidden = true;
+                        relightWidget.draw = () => {};
+                        relightWidget.computeSize = () => [0, -4];
+                    } catch {}
+                }
+                // Hide QwenVL header widget completely (no space, no draw)
+                if (qwenVLWidget) {
+                    try {
+                        qwenVLWidget.hidden = true;
+                        qwenVLWidget.type = "converted-widget";
+                        qwenVLWidget.draw = () => {};
+                        qwenVLWidget.computeSize = () => [0, -4];
+                    } catch {}
+                }
 
                 const DEFAULT_PRESET = "Camera Angles 📷";
                 let currentPreset = DEFAULT_PRESET;
@@ -274,13 +328,15 @@ app.registerExtension({
                     return { values, map };
                 };
 
-                const updateDropdown = (presetsMap, presetName, widget) => {
+                const updateDropdown = (presetsMap, presetName, widget, presetChanged = false) => {
                     if (!widget) return;
                     const { values, map } = buildDropdownValues(presetsMap, presetName);
                     widget.options = widget.options || {};
                     widget.options.values = values;
-                    if (!values.includes(widget.value)) {
+                    // When preset changes or current value isn't valid, reset to placeholder and notify
+                    if (presetChanged || !values.includes(widget.value)) {
                         widget.value = PLACEHOLDER;
+                        try { widget.callback?.call(widget, PLACEHOLDER); } catch {}
                     }
                     // Save mapping for full prompt restoration
                     node._qeDropdownMap = map;
@@ -295,56 +351,131 @@ app.registerExtension({
                         "qe_prompt_selector",
                         "btn",
                         $el("div.iamccs-qe-prompt-styles", [
-                            $el("div.tools", [
+                            // Row 1: toggles
+                            $el("div.tools.row1", {
+                                style: { display: "flex", flexWrap: "wrap", gap: "2px", alignItems: "center", marginBottom: "6px" }
+                            }, [
                                 // Toggle: keep selection after execution
-                                $el("label", { className: "qe-toggle keep", style: { display: "inline-flex", alignItems: "center", gap: "6px", marginRight: "10px", fontSize: "12px" } }, [
+                                $el("label", { className: "qe-toggle keep", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px" } }, [
                                     $el("input", {
                                         type: "checkbox",
-                                        onchange: (e) => {
-                                            node._qePersistSelection = !!e.target.checked;
-                                        }
+                                        onchange: (e) => { node._qePersistSelection = !!e.target.checked; }
                                     }),
-                                    $el("span", { textContent: "Keep selection" })
+                                    $el("span", { textContent: "KeepSel" })
                                 ]),
-                                // Toggle: dark preview mode (black bg, white icons)
-                                $el("label", { className: "qe-toggle dark", style: { display: "inline-flex", alignItems: "center", gap: "6px", marginRight: "10px", fontSize: "12px" } }, [
+                                $el("span", { textContent: "|", style: { opacity: 0.6, margin: "0 0px" } }),
+                                // Toggle: dark preview mode
+                                $el("label", { className: "qe-toggle dark", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px" } }, [
                                     $el("input", {
                                         type: "checkbox",
+                                        onchange: (e) => { node._qeDarkPreviews = !!e.target.checked; try { applyDarkPreviews(node._qeDarkPreviews, grid); } catch {} }
+                                    }),
+                                    $el("span", { textContent: "DarkUI" })
+                                ]),
+                                $el("span", { textContent: "|", style: { opacity: 0.6, margin: "0 0px" } }),
+                                // Toggle: maintain consistency (mirrors header widget)
+                                $el("label", { className: "qe-toggle consistency", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px" } }, [
+                                    $el("input", {
+                                        type: "checkbox",
+                                        checked: !!(maintainConsistencyWidget?.value),
                                         onchange: (e) => {
-                                            node._qeDarkPreviews = !!e.target.checked;
-                                            try { applyDarkPreviews(node._qeDarkPreviews, grid); } catch {}
+                                            if (maintainConsistencyWidget) {
+                                                maintainConsistencyWidget.value = !!e.target.checked;
+                                                maintainConsistencyWidget.callback?.call(maintainConsistencyWidget, maintainConsistencyWidget.value);
+                                            }
                                         }
                                     }),
-                                    $el("span", { textContent: "Dark previews" })
+                                    $el("span", { textContent: "Consistency" })
                                 ]),
-                                $el("span", { className: "qe-selected-pill", textContent: "Selected", style: { display: "none", padding: "2px 8px", borderRadius: "999px", background: "#3fb950", color: "#fff", fontSize: "12px", marginRight: "10px", alignItems: "center" } }),
+                                $el("span", { textContent: "|", style: { opacity: 0.6, margin: "0 0px" } }),
+                                // Toggle: get pose image 3 (mirrors header widget)
+                                $el("label", { className: "qe-toggle pose", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px" } }, [
+                                    $el("input", {
+                                        type: "checkbox",
+                                        checked: !!(getPoseWidget?.value),
+                                        onchange: (e) => {
+                                            if (getPoseWidget) {
+                                                getPoseWidget.value = !!e.target.checked;
+                                                getPoseWidget.callback?.call(getPoseWidget, getPoseWidget.value);
+                                            }
+                                        }
+                                    }),
+                                    $el("span", { textContent: "GetPoseImg3" })
+                                ]),
+                                $el("span", { textContent: "|", style: { opacity: 0.6, margin: "0 0px" } }),
+                                // Toggle: Relight (mirrors header widget; adds 重新照明)
+                                $el("label", { className: "qe-toggle relight", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px" } }, [
+                                    $el("input", {
+                                        type: "checkbox",
+                                        checked: !!(relightWidget?.value),
+                                        onchange: (e) => {
+                                            const checked = !!e.target.checked;
+                                            if (relightWidget) {
+                                                relightWidget.value = checked;
+                                                relightWidget.callback?.call(relightWidget, relightWidget.value);
+                                            }
+                                            // Frontend preview injection so user sees the appended relight text before execution
+                                            if (checked) {
+                                                if (promptWidget.value) {
+                                                    if (!/重新照明/.test(promptWidget.value)) {
+                                                        promptWidget.value += " | 重新照明";
+                                                    }
+                                                } else {
+                                                    promptWidget.value = "重新照明";
+                                                }
+                                            } else {
+                                                // Remove the relight suffix for preview only
+                                                if (promptWidget.value) {
+                                                    promptWidget.value = promptWidget.value
+                                                        .replace(/\s*\|\s*重新照明/g, "")
+                                                        .replace(/^重新照明$/,"" );
+                                                }
+                                            }
+                                        }
+                                    }),
+                                    $el("span", { textContent: "Relight" })
+                                ]),
+                                $el("span", { textContent: "|", style: { opacity: 0.6, margin: "0 0px" } }),
+                                // Toggle: Qwen VL (mirrors header widget)
+                                $el("label", { className: "qe-toggle qwenvl", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px", color: "#a371f7" } }, [
+                                    $el("input", {
+                                        type: "checkbox",
+                                        checked: !!(qwenVLWidget?.value),
+                                        onchange: (e) => {
+                                            if (qwenVLWidget) {
+                                                qwenVLWidget.value = !!e.target.checked;
+                                                qwenVLWidget.callback?.call(qwenVLWidget, qwenVLWidget.value);
+                                            }
+                                        }
+                                    }),
+                                    $el("span", { textContent: "QwenVL" })
+                                ])
+                            ]),
+                            // Row 2: clear + search
+                            $el("div.tools.row2", { style: { display: "flex", gap: "4px", alignItems: "center", marginBottom: "6px", flexWrap: "wrap" } }, [
                                 $el("button.delete", {
                                     textContent: "Clear Selection",
                                     onclick: () => {
                                         const searchInput = selector.element.querySelector(".search");
                                         if (searchInput) searchInput.value = "";
-
                                         grid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => {
                                             card.classList.remove("selected");
                                             card.classList.remove("hide");
                                         });
-
                                         promptWidget.value = "";
-                                        // Reset dropdown to placeholder as well
                                         if (dropdownWidget) {
                                             dropdownWidget.value = PLACEHOLDER;
                                             dropdownWidget.callback?.call(dropdownWidget, PLACEHOLDER);
                                         }
-                                        // Hide selected pill
-                                        try { setSelectedPill(false); } catch {}
                                         console.log("[QE Enhancer] Prompt cleared - output will be empty string");
                                     }
                                 }),
+                                $el("span", { textContent: "|", style: { opacity: 0.6, margin: "0 2px" } }),
                                 $el("input.search", {
                                     type: "text",
                                     dir: "ltr",
                                     placeholder: "Search prompts...",
-                                    style: { width: "220px", whiteSpace: "nowrap" },
+                                    style: { width: "260px", whiteSpace: "nowrap" },
                                     oninput: (e) => {
                                         let value = e.target.value.toLowerCase();
                                         grid.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(card => {
@@ -362,20 +493,16 @@ app.registerExtension({
                         ])
                     );
 
-                    // Helper to show/hide the selection status pill
-                    const setSelectedPill = (on) => {
-                        try {
-                            const pill = selector.element.querySelector(".qe-selected-pill");
-                            if (pill) pill.style.display = on ? "inline-flex" : "none";
-                        } catch {}
-                    };
+                    // Compact UI: no pills used
+                    const setSelectedPill = () => {};
+                    const setPresetPill = () => {};
 
                     // Prepare dropdown widget UI/behavior
                     if (dropdownWidget) {
                         // Force the widget to behave as a dropdown combo, even if defined as STRING in Python
                         dropdownWidget.type = "combo";
                         // Initial options for default preset
-                        updateDropdown(presets, currentPreset, dropdownWidget);
+                        updateDropdown(presets, currentPreset, dropdownWidget, true);
                         const originalDropdownCallback = dropdownWidget.callback;
                         dropdownWidget.callback = function (value) {
                             // Ignore placeholder
@@ -406,10 +533,12 @@ app.registerExtension({
                     updateGrid(presets, currentPreset, grid, selector);
                     // Apply dark previews if toggle is on (initial false)
                     try { applyDarkPreviews(!!node._qeDarkPreviews, grid); } catch {}
-                    // Ensure dropdown shows placeholder and pill is off on first load
+                    // Ensure dropdown shows placeholder on first load
                     try {
-                        if (dropdownWidget) dropdownWidget.value = PLACEHOLDER;
-                        setSelectedPill(false);
+                        if (dropdownWidget) {
+                            dropdownWidget.value = PLACEHOLDER;
+                            dropdownWidget.callback?.call(dropdownWidget, PLACEHOLDER);
+                        }
                     } catch {}
                     // Expose references for later reset (after execution)
                     node._qeGrid = grid;
@@ -432,10 +561,9 @@ app.registerExtension({
                         presetWidget.callback = function (value) {
                             currentPreset = value;
                             updateGrid(presets, currentPreset, grid, selector);
-                            updateDropdown(presets, currentPreset, dropdownWidget);
+                            updateDropdown(presets, currentPreset, dropdownWidget, true);
                             // Re-apply dark previews on grid rebuild if enabled
                             try { applyDarkPreviews(!!node._qeDarkPreviews, grid); } catch {}
-                            setSelectedPill(false);
                             if (originalCallback) {
                                 originalCallback.apply(this, arguments);
                             }

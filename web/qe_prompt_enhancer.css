@@ -44,7 +44,8 @@
     filter: brightness(1.2);
 }
 
-.iamccs-qe-prompt-styles .tools textarea.search {
+.iamccs-qe-prompt-styles .tools textarea.search,
+.iamccs-qe-prompt-styles .tools input.search {
     flex: 1;
     height: 30px;
     line-height: 30px;
@@ -120,12 +121,31 @@
     background: #ffffff;
     font-size: 96px;
     overflow: hidden;
+    border: 4px solid #000; /* black border enclosing preview (thicker by 2px) */
+    box-sizing: border-box;
+    border-radius: 6px;
 }
 
 .iamccs-qe-prompt-style-image img {
-    width: 128px;
-    height: 128px;
+    width: 126px; /* reduced by 2px */
+    height: 126px; /* reduced by 2px */
     object-fit: contain;
+}
+.iamccs-qe-prompt-style-card:hover .iamccs-qe-prompt-style-image {
+    border-color: #fff; /* white border on hover */
+}
+
+/* Selected should remain green even when hovered */
+.iamccs-qe-prompt-style-card.selected .iamccs-qe-prompt-style-image {
+    border-color: #4CAF50; /* green when selected */
+}
+
+/* Hover shrink effect for previews */
+.iamccs-qe-prompt-style-image > * {
+    transition: transform 0.12s ease;
+}
+.iamccs-qe-prompt-style-card:hover .iamccs-qe-prompt-style-image > * {
+    transform: scale(0.96);
 }
 
 /* Label at bottom */
