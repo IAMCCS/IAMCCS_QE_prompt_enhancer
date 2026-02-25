@@ -1,10 +1,10 @@
 # IAMCCS QE Prompt Enhancer
 
-**Visual prompt selector for Qwen Image Edit 2509 and other multimodal models**
+**Visual prompt selector for Qwen Image Edit 2509, 2511, flux.2 Klein and other multimodal edit models**
 
 <img src="icon.png" width="150" height="150">
 
-![Version](https://img.shields.io/badge/version-1.0.1-blue)
+![Version](https://img.shields.io/badge/version-1.0.2-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 Custom ComfyUI node providing a visual button grid interface for quick prompt selection, specifically designed for image editing workflows with Qwen IE 2509 and similar models.
@@ -16,6 +16,10 @@ Custom ComfyUI node providing a visual button grid interface for quick prompt se
 **GitHub**: [www.github.com/IAMCCS](http://www.github.com/IAMCCS)
 **Patreon**: [www.patreon.com/IAMCCS](http://www.patreon.com/IAMCCS)
 **Repository**: IAMCCS_QE_prompt_enhancer
+
+🚀 ## NEW in v1.0.2 (Update)
+
+The IAMCCS QE Prompt Enhancer has a new preset this release: Dataset generator 1, designed for multiline prompt workflows
 
 🚀 ## NEW in v1.0.1 (Update)
 

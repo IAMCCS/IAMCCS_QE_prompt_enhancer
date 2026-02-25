@@ -206,10 +206,9 @@ app.registerExtension({
                 }
 
                 const DEFAULT_PRESET = "Camera Angles 📷";
+                // Do NOT force-reset presetWidget.value here: the saved workflow value
+                // must be preserved so the grid loads the correct preset on restore.
                 let currentPreset = DEFAULT_PRESET;
-                if (presetWidget && presetWidget.value !== DEFAULT_PRESET) {
-                    try { presetWidget.value = DEFAULT_PRESET; } catch {}
-                }
                 let isInitializing = true;
                 const PLACEHOLDER = "— Select a prompt —";
 
@@ -345,6 +344,13 @@ app.registerExtension({
                 };
 
                 loadPrompts().then(presets => {
+                    // Re-read the preset value here: by the time the async fetch resolves,
+                    // ComfyUI will already have called configure() and restored the saved
+                    // preset widget value from the workflow.
+                    if (presetWidget && presetWidget.value) {
+                        currentPreset = presetWidget.value;
+                    }
+
                     const grid = $el("div.iamccs-qe-prompt-styles-list", []);
 
                     let selector = node.addDOMWidget(
@@ -545,16 +551,29 @@ app.registerExtension({
                     node._qePromptWidget = promptWidget;
                     node._qeDropdownWidget = dropdownWidget;
 
-                    // Fix preset initialization bug: force refresh on node creation
-                    if (isInitializing && currentPreset === "Camera Angles 📷") {
+                    // onConfigure hook: handles the rare case where configure() is called
+                    // AFTER loadPrompts() resolves (e.g. drag-drop onto existing canvas).
+                    const originalOnConfigure = node.onConfigure;
+                    node.onConfigure = function (info) {
+                        if (originalOnConfigure) originalOnConfigure.apply(this, arguments);
                         setTimeout(() => {
-                            updateGrid(presets, currentPreset, grid, selector);
-                            console.log("[QE Enhancer] Preset initialization: forced refresh for", currentPreset);
-                            isInitializing = false;
-                        }, 100);
-                    } else {
+                            const savedPreset = presetWidget && presetWidget.value;
+                            if (savedPreset && savedPreset !== currentPreset) {
+                                currentPreset = savedPreset;
+                                updateGrid(presets, currentPreset, grid, selector);
+                                updateDropdown(presets, currentPreset, dropdownWidget, true);
+                                console.log("[QE Enhancer] onConfigure: grid updated to saved preset", currentPreset);
+                            }
+                        }, 50);
+                    };
+
+                    // Force refresh on node creation so the grid always reflects currentPreset
+                    setTimeout(() => {
+                        updateGrid(presets, currentPreset, grid, selector);
+                        updateDropdown(presets, currentPreset, dropdownWidget, currentPreset !== (dropdownWidget && dropdownWidget.value && dropdownWidget.value !== PLACEHOLDER));
+                        console.log("[QE Enhancer] Preset initialization: grid built for", currentPreset);
                         isInitializing = false;
-                    }
+                    }, 100);
 
                     if (presetWidget) {
                         const originalCallback = presetWidget.callback;

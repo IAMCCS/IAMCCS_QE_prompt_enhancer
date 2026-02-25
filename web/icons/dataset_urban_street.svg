@@ -1,0 +1,16 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- City skyline -->
+  <path d="M6 40 L6 30 L12 30 L12 22 L16 22 L16 26 L20 26 L20 18 L24 18 L24 22 L28 22 L28 14 L32 14 L32 20 L36 20 L36 16 L40 16 L40 24 L44 24 L44 20 L48 20 L48 30 L52 30 L52 36 L58 36 L58 40" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Ground -->
+  <line x1="6" y1="40" x2="58" y2="40" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Walking figure -->
+  <circle cx="32" cy="47" r="4" fill="none" stroke="#000" stroke-width="1.2"/>
+  <!-- Body -->
+  <line x1="32" y1="51" x2="32" y2="58" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Arms -->
+  <line x1="28" y1="54" x2="36" y2="54" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+  <!-- Legs -->
+  <line x1="32" y1="58" x2="28" y2="62" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="32" y1="58" x2="36" y2="62" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+</svg>

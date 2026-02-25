@@ -1,0 +1,15 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Fog/haze wavy layers -->
+  <path d="M6 44 Q16 40 26 44 Q36 48 46 44 Q52 42 58 44" fill="none" stroke="#000" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/>
+  <path d="M6 50 Q18 46 30 50 Q42 54 58 50" fill="none" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+  <path d="M6 38 Q14 35 22 38 Q32 42 42 38 Q50 35 58 38" fill="none" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+  <!-- Figure partially obscured in fog -->
+  <circle cx="32" cy="22" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Body fading into fog -->
+  <path d="M24 36 Q24 32 32 32 Q40 32 40 36 L40 42" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <path d="M24 36 L24 42" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+  <!-- Fog wisp lines between figure and fog layer -->
+  <path d="M18 38 Q24 36 28 40" fill="none" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+  <path d="M36 40 Q40 36 46 38" fill="none" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Face silhouette (looking slightly down toward viewer) -->
+  <circle cx="32" cy="26" r="9" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Nose triangle shadow (upward light creates this) -->
+  <path d="M30 28 L32 24 L34 28" fill="none" stroke="#000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+  <!-- Under-chin harsh shadow line -->
+  <path d="M24 34 Q32 38 40 34" fill="none" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <!-- Light source from below - lamp icon -->
+  <rect x="26" y="50" width="12" height="8" rx="2" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Upward rays from lamp -->
+  <line x1="32" y1="50" x2="32" y2="36" stroke="#000" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="26" y1="49" x2="22" y2="40" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  <line x1="38" y1="49" x2="42" y2="40" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  <line x1="23" y1="47" x2="16" y2="42" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+  <line x1="41" y1="47" x2="48" y2="42" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.3"/>
+</svg>

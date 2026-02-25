@@ -91,7 +91,7 @@ class IAMCCS_QE_PromptEnhancer:
         return {
             "required": {
                 # Preset selector (dropdown)
-                "preset": (["Camera Angles 📷", "Style Effects 🎨", "Scene Changes 🌍", "Multi-Image Edits 🖼️", "Additional Effects 🎯", "Other amazing prompts 😍", "Travel 🌍", "Cinematic Looks 🎞️"], {
+                "preset": (["Camera Angles 📷", "Style Effects 🎨", "Scene Changes 🌍", "Multi-Image Edits 🖼️", "Additional Effects 🎯", "Other amazing prompts 😍", "Travel 🌍", "Cinematic Looks 🎞️", "Dataset generator_1 📊"], {
                     "default": "Camera Angles 📷"
                 }),
                 # Dropdown with names + summaries of prompts (full universe).

@@ -1,0 +1,16 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Clean frame/backdrop -->
+  <rect x="10" y="8" width="44" height="48" rx="2" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Pedestal/product stand -->
+  <rect x="22" y="42" width="20" height="6" rx="1" fill="none" stroke="#000" stroke-width="1.2"/>
+  <rect x="18" y="48" width="28" height="4" rx="1" fill="none" stroke="#000" stroke-width="1.2"/>
+  <!-- Figure on pedestal -->
+  <circle cx="32" cy="28" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+  <path d="M25 42 Q25 36 32 36 Q39 36 39 42" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Even bilateral lighting marks -->
+  <line x1="10" y1="20" x2="14" y2="22" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+  <line x1="54" y1="20" x2="50" y2="22" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+  <line x1="10" y1="28" x2="14" y2="28" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+  <line x1="54" y1="28" x2="50" y2="28" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+</svg>

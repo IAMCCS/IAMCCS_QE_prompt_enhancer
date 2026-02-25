@@ -1,0 +1,18 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Fashion figure elongated silhouette -->
+  <circle cx="32" cy="14" r="5" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Neck -->
+  <line x1="32" y1="19" x2="32" y2="23" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Shoulders angular fashion -->
+  <path d="M20 24 L32 23 L44 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Dress/garment V shape -->
+  <path d="M20 24 L24 50 L32 44 L40 50 L44 24" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Studio strobe lights L and R -->
+  <rect x="6" y="18" width="8" height="5" rx="1" fill="none" stroke="#000" stroke-width="1"/>
+  <line x1="14" y1="20" x2="18" y2="21" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+  <rect x="50" y="18" width="8" height="5" rx="1" fill="none" stroke="#000" stroke-width="1"/>
+  <line x1="50" y1="20" x2="46" y2="21" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+  <!-- Clean floor line -->
+  <line x1="10" y1="58" x2="54" y2="58" stroke="#000" stroke-width="1" stroke-linecap="round"/>
+</svg>

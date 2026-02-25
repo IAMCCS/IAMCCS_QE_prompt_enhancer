@@ -1,0 +1,22 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Central glowing orb -->
+  <circle cx="32" cy="32" r="8" fill="none" stroke="#000" stroke-width="1.5"/>
+  <circle cx="32" cy="32" r="4" fill="none" stroke="#000" stroke-width="1" opacity="0.6"/>
+  <!-- Sparkle stars -->
+  <path d="M32 10 L33.5 14 L37 14 L34.5 16.5 L36 20 L32 18 L28 20 L29.5 16.5 L27 14 L30.5 14 Z" fill="none" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
+  <!-- Small sparkles -->
+  <path d="M14 22 L14.8 24.5 L17.5 24.5 L15.5 26 L16.3 28.5 L14 27 L11.7 28.5 L12.5 26 L10.5 24.5 L13.2 24.5 Z" fill="none" stroke="#000" stroke-width="0.8" stroke-linejoin="round"/>
+  <path d="M50 22 L50.8 24.5 L53.5 24.5 L51.5 26 L52.3 28.5 L50 27 L47.7 28.5 L48.5 26 L46.5 24.5 L49.2 24.5 Z" fill="none" stroke="#000" stroke-width="0.8" stroke-linejoin="round"/>
+  <!-- Floating particles -->
+  <circle cx="18" cy="40" r="1.5" fill="none" stroke="#000" stroke-width="1"/>
+  <circle cx="46" cy="40" r="1.5" fill="none" stroke="#000" stroke-width="1"/>
+  <circle cx="24" cy="52" r="1" fill="none" stroke="#000" stroke-width="1"/>
+  <circle cx="40" cy="52" r="1" fill="none" stroke="#000" stroke-width="1"/>
+  <!-- Radiant lines from center -->
+  <line x1="32" y1="24" x2="32" y2="20" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+  <line x1="40" y1="24" x2="44" y2="20" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+  <line x1="24" y1="24" x2="20" y2="20" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+  <line x1="40" y1="40" x2="44" y2="44" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+  <line x1="24" y1="40" x2="20" y2="44" stroke="#000" stroke-width="0.8" stroke-linecap="round" opacity="0.4"/>
+</svg>

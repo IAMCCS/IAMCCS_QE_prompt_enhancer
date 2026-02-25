@@ -1,0 +1,14 @@
+<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <rect width="64" height="64" fill="none"/>
+  <!-- Dark panel background -->
+  <rect x="8" y="10" width="48" height="44" rx="3" fill="none" stroke="#000" stroke-width="1.5"/>
+  <!-- Silhouette figure -->
+  <circle cx="32" cy="24" r="6" fill="none" stroke="#000" stroke-width="1.5"/>
+  <path d="M22 44 Q22 34 32 34 Q42 34 42 44" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Rim light lines left -->
+  <line x1="10" y1="22" x2="14" y2="26" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <line x1="10" y1="30" x2="14" y2="32" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <!-- Rim light lines right -->
+  <line x1="54" y1="22" x2="50" y2="26" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  <line x1="54" y1="30" x2="50" y2="32" stroke="#000" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+</svg>
