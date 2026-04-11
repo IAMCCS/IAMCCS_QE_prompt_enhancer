@@ -1,6 +1,6 @@
 # IAMCCS QE Prompt Enhancer
 
-**Visual prompt selector for Qwen Image Edit 2509, 2511, flux.2 Klein and other multimodal edit models**
+**Visual prompt selector for Qwen Image Edit 2509, 2511, flux.2 Klein and other image edit models**
 
 <img src="icon.png" width="150" height="150">
 
@@ -17,9 +17,15 @@ Custom ComfyUI node providing a visual button grid interface for quick prompt se
 **Patreon**: [www.patreon.com/IAMCCS](http://www.patreon.com/IAMCCS)
 **Repository**: IAMCCS_QE_prompt_enhancer
 
+🚀 ## NEW in v1.0.3 (Update)
+
+New preset for dataset creation: Dataset generator 2,3,4,5 - designed for multiline prompt workflows.
+Added hide/show button.
+Added Character profile to iniect prompt to multiline prompt.
+
 🚀 ## NEW in v1.0.2 (Update)
 
-The IAMCCS QE Prompt Enhancer has a new preset this release: Dataset generator 1, designed for multiline prompt workflows
+The IAMCCS QE Prompt Enhancer has a new preset this release: Dataset generator 1, designed for multiline prompt workflows.
 
 🚀 ## NEW in v1.0.1 (Update)
 

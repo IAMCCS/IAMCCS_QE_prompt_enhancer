@@ -69,6 +69,9 @@ class IAMCCS_QE_PromptEnhancer:
             presets = cls().load_prompts()
         except Exception:
             presets = {}
+        preset_names = [name for name in presets.keys() if isinstance(name, str) and name.strip()]
+        if not preset_names:
+            preset_names = ["Camera Angles 📷", "Style Effects 🎨", "Scene Changes 🌍"]
         def _truncate_70(s: str) -> str:
             try:
                 s = " ".join((s or "").split())
@@ -91,8 +94,8 @@ class IAMCCS_QE_PromptEnhancer:
         return {
             "required": {
                 # Preset selector (dropdown)
-                "preset": (["Camera Angles 📷", "Style Effects 🎨", "Scene Changes 🌍", "Multi-Image Edits 🖼️", "Additional Effects 🎯", "Other amazing prompts 😍", "Travel 🌍", "Cinematic Looks 🎞️", "Dataset generator_1 📊"], {
-                    "default": "Camera Angles 📷"
+                "preset": (preset_names, {
+                    "default": preset_names[0]
                 }),
                 # Dropdown with names + summaries of prompts (full universe).
                 # The web UI narrows visible options per selected preset, but any
@@ -119,6 +122,13 @@ class IAMCCS_QE_PromptEnhancer:
                     "default": "",
                     "multiline": True
                 }),
+                "character_profile_enabled": ("BOOLEAN", {
+                    "default": False
+                }),
+                "character_profile": ("STRING", {
+                    "default": "",
+                    "multiline": False
+                }),
             },
         }
 
@@ -128,7 +138,35 @@ class IAMCCS_QE_PromptEnhancer:
     CATEGORY = "IAMCCS/Prompt"
     OUTPUT_NODE = False
 
-    def get_prompt(self, preset="Camera Angles 📷", preset_prompt="— Select a prompt —", maintain_consistency=False, get_pose_image3=False, relight=False, QwenVL=False, selected_prompt=""):
+    @staticmethod
+    def _inject_character_profile(prompt_text, enabled, profile_text):
+        """Append a shared character profile to each non-empty prompt line."""
+        if not enabled:
+            return prompt_text
+
+        profile = (profile_text or "").strip()
+        if not profile:
+            return prompt_text
+
+        source = prompt_text or ""
+        if not source.strip():
+            return source
+
+        injected_lines = []
+        for line in source.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                injected_lines.append(line)
+                continue
+
+            if stripped.endswith("|"):
+                injected_lines.append(f"{stripped} {profile}")
+            else:
+                injected_lines.append(f"{stripped} | {profile}")
+
+        return "\n".join(injected_lines)
+
+    def get_prompt(self, preset="Camera Angles 📷", preset_prompt="— Select a prompt —", maintain_consistency=False, get_pose_image3=False, relight=False, QwenVL=False, selected_prompt="", character_profile_enabled=False, character_profile=""):
         """Return the selected prompt text with optional additions"""
         # The widget will populate selected_prompt with the full prompt text
         # If empty string, keep it empty (Clear Selection was pressed)
@@ -156,6 +194,12 @@ class IAMCCS_QE_PromptEnhancer:
                 "character pose+camera angles+environment"
             )
             return (qwen_prompt,)
+
+        final_prompt = self._inject_character_profile(
+            final_prompt,
+            character_profile_enabled,
+            character_profile,
+        )
 
         # Add consistency prompt if enabled (now independent of base prompt)
         if maintain_consistency:

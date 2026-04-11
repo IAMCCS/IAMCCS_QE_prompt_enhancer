@@ -1,6 +1,6 @@
 {
   "name": "iamccs-qe-prompt-enhancer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Carmine Cristallo Scalzi (IAMCCS)",
-  "description": "Visual prompt selector for Qwen Image Edit 2509 and other multimodal models."
+  "description": "Visual prompt selector for Qwen Image Edit 2509, Flux Klein and other image edit models."
 }
