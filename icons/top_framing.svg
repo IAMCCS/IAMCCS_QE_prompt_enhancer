@@ -1,7 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Top-down framing -->
-  <rect x="16" y="18" width="32" height="28" fill="none" stroke="#000" stroke-width="1.5" rx="1"/>
-  <!-- Subject from above -->
-  <ellipse cx="32" cy="32" rx="10" ry="6" fill="none" stroke="#000" stroke-width="1.5"/>
-</svg>

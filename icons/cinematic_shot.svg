@@ -1,8 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Cinematic frame -->
-  <rect x="8" y="16" width="48" height="24" fill="none" stroke="#000" stroke-width="1.5" rx="1"/>
-  <!-- Dramatic lighting lines -->
-  <line x1="10" y1="20" x2="14" y2="16" stroke="#000" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-  <line x1="54" y1="36" x2="50" y2="40" stroke="#000" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
-</svg>

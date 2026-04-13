@@ -1,9 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Photo -->
-  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
-  <!-- Vintage corner fold -->
-  <polygon points="44,14 50,14 44,20" fill="none" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
-  <!-- Vignette effect (darker corners) -->
-  <circle cx="32" cy="32" r="16" fill="none" stroke="#000" stroke-width="1" opacity="0.3"/>
-</svg>

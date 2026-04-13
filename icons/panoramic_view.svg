@@ -1,8 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Wide aspect ratio frame -->
-  <rect x="8" y="24" width="48" height="16" fill="none" stroke="#000" stroke-width="1.5" rx="1"/>
-  <!-- Extended landscape -->
-  <line x1="10" y1="30" x2="26" y2="30" stroke="#000" stroke-width="1" opacity="0.5"/>
-  <line x1="38" y1="30" x2="54" y2="30" stroke="#000" stroke-width="1" opacity="0.5"/>
-</svg>

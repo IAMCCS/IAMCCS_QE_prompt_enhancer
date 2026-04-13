@@ -1,9 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Double arrow indicating reversal -->
-  <path d="M 16 30 Q 32 20 48 30" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M 16 34 Q 32 44 48 34" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Arrow heads -->
-  <path d="M 12 28 L 16 30 L 14 34" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 52 28 L 48 30 L 50 34" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>

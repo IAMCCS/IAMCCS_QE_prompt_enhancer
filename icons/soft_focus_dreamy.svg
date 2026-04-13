@@ -1,8 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Subject soft -->
-  <circle cx="32" cy="32" r="10" fill="none" stroke="#000" stroke-width="1.5" opacity="0.8"/>
-  <circle cx="32" cy="32" r="10" fill="none" stroke="#000" stroke-width="0.5" opacity="0.4"/>
-  <!-- Soft glow -->
-  <circle cx="32" cy="32" r="14" fill="none" stroke="#000" stroke-width="0.5" opacity="0.2"/>
-</svg>

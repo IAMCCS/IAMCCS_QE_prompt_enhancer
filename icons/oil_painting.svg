@@ -1,9 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Canvas -->
-  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
-  <!-- Paint brushstrokes -->
-  <path d="M 22 24 Q 28 20 32 26" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-  <path d="M 24 36 Q 32 38 40 34" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-  <path d="M 42 28 Q 44 32 40 38" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round"/>
-</svg>

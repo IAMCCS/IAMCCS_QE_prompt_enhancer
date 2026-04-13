@@ -1,9 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Mirror/water surface -->
-  <line x1="12" y1="32" x2="52" y2="32" stroke="#000" stroke-width="1.5" stroke-dasharray="2,2"/>
-  <!-- Original -->
-  <polygon points="32,16 26,28 38,28" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round"/>
-  <!-- Reflection -->
-  <polygon points="32,48 26,36 38,36" fill="none" stroke="#000" stroke-width="1.5" stroke-linejoin="round" opacity="0.6"/>
-</svg>

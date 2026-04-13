@@ -1,8 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Half black, half white circle -->
-  <circle cx="32" cy="32" r="16" fill="none" stroke="#000" stroke-width="1.5"/>
-  <path d="M 32 16 A 16 16 0 0 1 32 48" fill="#000"/>
-  <!-- Frame -->
-  <rect x="14" y="14" width="36" height="36" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
-</svg>

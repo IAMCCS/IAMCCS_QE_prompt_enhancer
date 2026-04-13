@@ -1,7 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Right-pointing arrow/chevron -->
-  <polyline points="22,20 44,32 22,44" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <!-- 90° indicator arc -->
-  <path d="M 14 30 Q 14 20 24 20" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-</svg>

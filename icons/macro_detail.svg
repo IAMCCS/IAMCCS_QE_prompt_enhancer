@@ -1,9 +1,0 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Magnified texture -->
-  <rect x="18" y="18" width="28" height="28" fill="none" stroke="#000" stroke-width="1.5" rx="2"/>
-  <!-- Texture detail lines -->
-  <line x1="22" y1="26" x2="40" y2="26" stroke="#000" stroke-width="0.8" opacity="0.6"/>
-  <line x1="22" y1="32" x2="40" y2="32" stroke="#000" stroke-width="0.8" opacity="0.6"/>
-  <line x1="22" y1="38" x2="40" y2="38" stroke="#000" stroke-width="0.8" opacity="0.6"/>
-</svg>
