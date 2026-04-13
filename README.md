@@ -9,7 +9,7 @@
 
 Custom ComfyUI node providing a visual button grid interface for quick prompt selection, specifically designed for image editing workflows with Qwen IE 2509 and similar models.
 
-![First image](assets/image_cover.png)
+![First image](assets/cover.png)
 
 **Author**: Carmine Cristallo Scalzi (IAMCCS)
 **Website**: [www.carminecristalloscalzi.com](http://www.carminecristalloscalzi.com) | [www.faidenblass.com](http://www.faidenblass.com)
