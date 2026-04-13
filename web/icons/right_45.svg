@@ -1,8 +1,5 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Rotated square representing 45° angle -->
-  <rect x="20" y="20" width="24" height="24" fill="none" stroke="#000" stroke-width="1.5" transform="rotate(45 32 32)"/>
-  <!-- Arrow indicating right rotation -->
-  <path d="M 48 32 L 54 32" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M 52 28 L 54 32 L 52 36" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <circle cx="120" cy="92" r="58" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M90 52C115 48 148 62 166 86C176 100 180 112 180 124" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
+  <path d="M180 124L162 116M180 124L170 106" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
 </svg>

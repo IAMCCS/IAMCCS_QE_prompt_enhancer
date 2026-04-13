@@ -1,10 +1,9 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Camera pointing upward -->
-  <rect x="24" y="30" width="16" height="12" fill="none" stroke="#000" stroke-width="1.5" rx="1"/>
-  <!-- Lens circle -->
-  <circle cx="32" cy="36" r="4" fill="none" stroke="#000" stroke-width="1.5"/>
-  <!-- Upward arrow -->
-  <path d="M 32 50 L 32 56" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M 28 52 L 32 56 L 36 52" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <g stroke="currentColor" stroke-width="1.2" opacity="0.28">
+    <path d="M28 148L82 94"/>
+    <path d="M48 160L104 104"/>
+    <path d="M212 148L158 94"/>
+    <path d="M192 160L136 104"/>
+  </g>
+  <path d="M58 138L120 48L182 138M120 48V136" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
 </svg>

@@ -18,6 +18,29 @@ styleElement.type = "text/css";
 styleElement.href = new URL("qe_prompt_enhancer.css", import.meta.url).href;
 document.head.appendChild(styleElement);
 
+const QE_ICON_DEBUG_SESSION = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+
+function logIconDebug(event, details = {}) {
+    console.log("[QE Enhancer][IconDebug]", event, {
+        session: QE_ICON_DEBUG_SESSION,
+        page: window.location.href,
+        ...details
+    });
+}
+
+function resolvePromptIconSrc(prompt) {
+    if (!prompt?.icon) {
+        return null;
+    }
+
+    if (prompt.icon.startsWith("icons/")) {
+        const iconName = prompt.icon.replace("icons/", "");
+        return `/extensions/IAMCCS_QE_prompt_enhancer/icons/${iconName}?slot=${encodeURIComponent(prompt.slot ?? "na")}&session=${encodeURIComponent(QE_ICON_DEBUG_SESSION)}`;
+    }
+
+    return prompt.icon;
+}
+
 /**
  * Create style cards with icon preview
  */
@@ -34,6 +57,14 @@ function getStyleCards(prompts, onSelect) {
                 index: index
             },
             onclick: function () {
+                const previewImg = this.querySelector(".iamccs-qe-prompt-style-image img");
+                logIconDebug("card-click", {
+                    label: prompt.label,
+                    slot: prompt.slot,
+                    icon: prompt.icon,
+                    requestedSrc: previewImg?.getAttribute("src") || null,
+                    currentSrc: previewImg?.currentSrc || null
+                });
                 // Remove selected from all cards
                 this.parentElement.querySelectorAll(".iamccs-qe-prompt-style-card").forEach(el => {
                     el.classList.remove("selected");
@@ -63,6 +94,9 @@ function getStyleCards(prompts, onSelect) {
  */
 function createIconPreview(prompt) {
     const previewDiv = $el("div.iamccs-qe-prompt-style-image");
+    previewDiv.dataset.icon = prompt.icon || "";
+    previewDiv.dataset.label = prompt.label || "";
+    previewDiv.dataset.slot = String(prompt.slot ?? "");
 
     if (prompt.icon) {
         // Support local or remote SVG/PNG icons
@@ -73,17 +107,46 @@ function createIconPreview(prompt) {
             prompt.icon.endsWith(".png")
         ) {
             const img = document.createElement("img");
-            // Handle relative paths to icons folder
-            if (prompt.icon.startsWith("icons/")) {
-                // Cache-bust query param using slot + date so new SVGs show immediately
-                const iconName = prompt.icon.replace("icons/", "");
-                const versionTag = (prompt.slot ? `v=${prompt.slot}-${new Date().getFullYear()}${(new Date().getMonth()+1)}${new Date().getDate()}` : "v=1");
-                img.src = `/extensions/IAMCCS_QE_prompt_enhancer/icons/${iconName}?${versionTag}`;
-                console.log("[QE Enhancer] Loading icon from /extensions:", img.src);
-            } else {
-                img.src = prompt.icon;
-            }
+            const resolvedSrc = resolvePromptIconSrc(prompt);
+            img.src = resolvedSrc;
             img.alt = prompt.label || "icon";
+            img.dataset.icon = prompt.icon || "";
+            img.dataset.resolvedSrc = resolvedSrc || "";
+            img.addEventListener("load", () => {
+                logIconDebug("icon-load", {
+                    label: prompt.label,
+                    slot: prompt.slot,
+                    icon: prompt.icon,
+                    requestedSrc: img.getAttribute("src"),
+                    currentSrc: img.currentSrc,
+                    naturalWidth: img.naturalWidth,
+                    naturalHeight: img.naturalHeight
+                });
+            });
+            img.addEventListener("error", () => {
+                logIconDebug("icon-error", {
+                    label: prompt.label,
+                    slot: prompt.slot,
+                    icon: prompt.icon,
+                    requestedSrc: img.getAttribute("src"),
+                    currentSrc: img.currentSrc
+                });
+            });
+            previewDiv.addEventListener("click", () => {
+                logIconDebug("icon-preview-click", {
+                    label: prompt.label,
+                    slot: prompt.slot,
+                    icon: prompt.icon,
+                    requestedSrc: img.getAttribute("src"),
+                    currentSrc: img.currentSrc
+                });
+            });
+            logIconDebug("icon-src-resolved", {
+                label: prompt.label,
+                slot: prompt.slot,
+                icon: prompt.icon,
+                resolvedSrc
+            });
             // CSS now handles sizing (128x128) and filtering (invert)
             previewDiv.appendChild(img);
         }

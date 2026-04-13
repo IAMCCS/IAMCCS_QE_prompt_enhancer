@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body -->
+    <rect x="14" y="22" width="36" height="20" rx="4" />
+    <path d="M22 22l3-6h14l3 6" />
+    <!-- Lens (wide) -->
+    <ellipse cx="32" cy="32" rx="9" ry="6" />
+    <ellipse cx="32" cy="32" rx="4" ry="2.7" />
+    <!-- FOV rays -->
+    <path d="M6 32c5-9 14-14 26-14s21 5 26 14" />
+    <path d="M8 40c4-7 12-11 24-11s20 4 24 11" />
+  </g>
+</svg>

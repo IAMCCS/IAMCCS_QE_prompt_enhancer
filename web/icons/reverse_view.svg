@@ -1,9 +1,4 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Double arrow indicating reversal -->
-  <path d="M 16 30 Q 32 20 48 30" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <path d="M 16 34 Q 32 44 48 34" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Arrow heads -->
-  <path d="M 12 28 L 16 30 L 14 34" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M 52 28 L 48 30 L 50 34" fill="none" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <circle cx="120" cy="92" r="56" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+  <path d="M48 92H192M82 64L48 92L82 120M158 64L192 92L158 120" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
 </svg>

@@ -1,14 +1,16 @@
-<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-  <rect width="64" height="64" fill="none"/>
-  <!-- Head at 3/4 angle -->
-  <circle cx="32" cy="18" r="7" fill="none" stroke="#000" stroke-width="1.5"/>
-  <!-- Profile line -->
-  <line x1="39" y1="13" x2="39" y2="23" stroke="#000" stroke-width="1"/>
-  <!-- Body 3/4 view -->
-  <line x1="32" y1="25" x2="32" y2="42" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Shoulders -->
-  <line x1="22" y1="28" x2="42" y2="28" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <!-- Legs -->
-  <line x1="28" y1="42" x2="28" y2="54" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
-  <line x1="36" y1="42" x2="36" y2="54" stroke="#000" stroke-width="1.5" stroke-linecap="round"/>
+<svg viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <g stroke="currentColor" stroke-width="1" opacity="0.28">
+    <path d="M30 42H210"/>
+    <path d="M30 78H210"/>
+    <path d="M30 114H210"/>
+    <path d="M30 150H210"/>
+    <path d="M54 24V160"/>
+    <path d="M98 24V160"/>
+    <path d="M142 24V160"/>
+    <path d="M186 24V160"/>
+  </g>
+  <path d="M78 130V62C78 52 86 44 96 44H144" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
+  <path d="M144 44C160 44 172 56 172 72V118" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.62"/>
+  <path d="M112 58L154 82" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
+  <path d="M92 126H154" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
 </svg>

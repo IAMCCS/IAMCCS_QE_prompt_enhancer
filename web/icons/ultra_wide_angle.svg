@@ -1,14 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Body smaller to emphasize lens -->
-    <rect x="10" y="19" width="44" height="24" rx="5" />
-    <path d="M18 19l3-6h22l3 6" />
-    <!-- Ultra wide lens (larger) -->
-    <ellipse cx="32" cy="31" rx="12" ry="8" />
-    <ellipse cx="32" cy="31" rx="5.5" ry="3.7" />
-    <!-- Multi FOV arcs wider spread -->
-    <path d="M4 31c6-11 16-17 28-17s22 6 28 17" />
-    <path d="M6 39c5-8 14-13 26-13s21 5 26 13" />
-    <path d="M8 45c4-6 12-10 24-10s20 4 24 10" />
+<svg viewBox="0 0 240 180" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <g stroke="currentColor" stroke-width="1.2" opacity="0.28">
+    <path d="M28 148L82 94"/>
+    <path d="M48 160L104 104"/>
+    <path d="M212 148L158 94"/>
+    <path d="M192 160L136 104"/>
   </g>
+  <path d="M24 136L92 44M216 136L148 44M24 136H216M70 110H170" stroke="currentColor" stroke-width="4" stroke-linecap="round" opacity="0.96"/>
 </svg>
