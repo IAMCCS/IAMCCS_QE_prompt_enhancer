@@ -133,9 +133,12 @@ app.registerExtension({
 
                 const FIXED_WIDTH = 590;
                 const FIXED_HEIGHT = 920;
-                const COLLAPSED_HEIGHT = 240;
+                const COLLAPSED_HEIGHT = 260;
                 this.setSize([FIXED_WIDTH, FIXED_HEIGHT]);
                 this.resizable = false;
+                this.color = "#111111";
+                this.bgcolor = "#050505";
+                this.boxcolor = "#2a2a2a";
 
                 const presetWidget = this.widgets.find(w => w.name === "preset");
                 const dropdownWidget = this.widgets.find(w => w.name === "preset_prompt");
@@ -155,7 +158,9 @@ app.registerExtension({
                 // Hide header widgets we mirror inside padding tools
                 const hideHeaderWidget = (w) => {
                     if (!w) return;
+                    w.hidden = true;
                     w.type = "converted-widget";
+                    w.draw = () => {};
                     w.computeSize = () => [0, -4];
                 };
                 hideHeaderWidget(promptWidget);
@@ -230,6 +235,7 @@ app.registerExtension({
                 let currentPreset = DEFAULT_PRESET;
                 let isInitializing = true;
                 const PLACEHOLDER = "— Select a prompt —";
+                node._qeDarkPreviews = false;
 
                 // Removed custom purple styling to ensure widget visibility across themes
 
@@ -279,8 +285,24 @@ app.registerExtension({
                 const applyUiVisibility = (visible) => {
                     const shouldShow = visible !== false;
                     node._qeUiVisible = shouldShow;
+                    if (node._qeSelector?.element) {
+                        const el = node._qeSelector.element;
+                        const row1 = el.querySelector(".tools.row1");
+                        const row2 = el.querySelector(".tools.row2");
+                        const row3 = el.querySelector(".tools.row3");
+                        el.style.display = "flex";
+                        el.style.height = shouldShow ? "100%" : "auto";
+                        el.style.minHeight = "0";
+                        el.style.overflow = "hidden";
+                        if (row1) row1.style.display = shouldShow ? "" : "none";
+                        if (row2) row2.style.display = "";
+                        if (row3) row3.style.display = "";
+                    }
                     if (node._qeGrid) {
                         node._qeGrid.style.display = shouldShow ? "" : "none";
+                    }
+                    if (node._qeSelector) {
+                        node._qeSelector.computeSize = () => [FIXED_WIDTH - 20, node._qeUiVisible === false ? 85 : FIXED_HEIGHT - 165];
                     }
                     this.setSize([FIXED_WIDTH, shouldShow ? FIXED_HEIGHT : COLLAPSED_HEIGHT]);
                     markNodeDirty();
@@ -299,6 +321,9 @@ app.registerExtension({
                 const formatDropdownEntry = (obj) => {
                     return `${obj.label} | ${truncatePrompt(obj.prompt)}`;
                 };
+
+                let setSelectedPill = () => {};
+                let setPresetPill = () => {};
 
                 const loadPrompts = async () => {
                     try {
@@ -345,6 +370,11 @@ app.registerExtension({
                 const updateGrid = (presets, presetName, grid, selector) => {
                     const prompts = presets[presetName] || [];
                     grid.innerHTML = "";
+                    grid.classList.remove("slot-count-8");
+
+                    if (prompts.length === 8) {
+                        grid.classList.add("slot-count-8");
+                    }
 
                     if (selector && selector.element) {
                         const searchInput = selector.element.querySelector(".search");
@@ -379,6 +409,7 @@ app.registerExtension({
                 // Helper: apply dark preview mode styles
                 const applyDarkPreviews = (enabled, gridEl) => {
                     if (!gridEl) return;
+                    gridEl.classList.toggle("iamccs-qe-dark-previews", !!enabled);
                     gridEl.querySelectorAll(".iamccs-qe-prompt-style-image").forEach(area => {
                         area.style.backgroundColor = enabled ? "#000" : "";
                         // IMG icons
@@ -466,6 +497,7 @@ app.registerExtension({
                                 $el("label", { className: "qe-toggle dark", style: { display: "inline-flex", alignItems: "center", gap: "2px", fontSize: "11px" } }, [
                                     $el("input", {
                                         type: "checkbox",
+                                        checked: false,
                                         onchange: (e) => { node._qeDarkPreviews = !!e.target.checked; try { applyDarkPreviews(node._qeDarkPreviews, grid); } catch {} }
                                     }),
                                     $el("span", { textContent: "DarkUI" })
@@ -624,11 +656,15 @@ app.registerExtension({
 
                     node._qeSelector = selector;
 
+                    if (selector) {
+                        selector.computeSize = () => [FIXED_WIDTH - 20, node._qeUiVisible === false ? 85 : FIXED_HEIGHT - 165];
+                    }
+
                     syncCharacterProfileUI();
 
                     // Compact UI: no pills used
-                    const setSelectedPill = () => {};
-                    const setPresetPill = () => {};
+                    setSelectedPill = () => {};
+                    setPresetPill = () => {};
 
                     // Prepare dropdown widget UI/behavior
                     if (dropdownWidget) {

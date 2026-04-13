@@ -16,6 +16,7 @@ import re
 
 # Import nodes
 from .nodes.qe_prompt_enhancer import *
+from .nodes.qe_args import *
 
 NODE_CONFIG = {}
 

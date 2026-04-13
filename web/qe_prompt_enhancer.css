@@ -85,6 +85,28 @@
     grid-auto-rows: min-content;
 }
 
+.iamccs-qe-prompt-styles-list.slot-count-8 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.iamccs-qe-prompt-styles-list.slot-count-8 .iamccs-qe-prompt-style-card {
+    aspect-ratio: 1 / 1.02;
+}
+
+.iamccs-qe-prompt-styles-list.slot-count-8 .iamccs-qe-prompt-style-image {
+    font-size: 112px;
+}
+
+.iamccs-qe-prompt-styles-list.slot-count-8 .iamccs-qe-prompt-style-image img {
+    width: 146px;
+    height: 146px;
+}
+
+.iamccs-qe-prompt-styles-list.slot-count-8 .iamccs-qe-prompt-style-label {
+    font-size: 12px;
+}
+
 /* Style card - like easyuse with image preview */
 .iamccs-qe-prompt-style-card {
     position: relative;
